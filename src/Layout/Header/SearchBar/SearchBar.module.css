@@ -3,10 +3,13 @@
   justify-content: flex-end;
 }
 .search_bar input {
-  height: 40px;
+  height: 35px;
+  background-color: #fff;
+  margin-top: 3px;
 }
 .search_bar input:enabled {
   padding-left: 30px;
+  font-size: 15px;
 }
 .search_bar div {
   width: 100% !important;
@@ -18,9 +21,9 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 6px;
-  font-size: 19px;
+  font-size: 17px;
 }
 .search_bar div button:focus {
   transform: scale(0.9);
