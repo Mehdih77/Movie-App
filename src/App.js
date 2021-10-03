@@ -1,4 +1,3 @@
-import './App.css';
 import Home from './Pages/Home/Home';
 import Layout from './Layout/Layout';
 import {

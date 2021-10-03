@@ -9,7 +9,7 @@ export default function SearchBar() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"/>
-                <i class="fas fa-search"></i>
+                <button><i class="fas fa-search"></i></button>
             </div>
             <button className={`${styles.user_btn} btn`} type="submit">
                 <i className="fas fa-user"></i>

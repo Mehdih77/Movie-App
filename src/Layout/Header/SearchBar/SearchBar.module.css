@@ -13,12 +13,17 @@
   position: relative;
   margin-right: 15px;
 }
-.search_bar div i {
-  color: red;
+.search_bar div button {
+  color: #333;
+  background-color: transparent;
+  border: none;
   position: absolute;
-  top: 11px;
+  top: 6px;
   left: 6px;
-  font-size: 18px;
+  font-size: 19px;
+}
+.search_bar div button:focus {
+  transform: scale(0.9);
 }
 
 .user_btn {

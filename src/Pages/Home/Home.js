@@ -1,7 +1,9 @@
+import MainSlider from "../../components/MainSlider/MainSlider";
+
 export default function Home() {
     return (
-        <div>
-            
-        </div>
+        <>
+         <MainSlider />   
+        </>
     )
 }
