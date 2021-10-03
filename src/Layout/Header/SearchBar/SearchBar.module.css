@@ -1,0 +1,38 @@
+.search_bar {
+  display: flex;
+  justify-content: flex-end;
+}
+.search_bar input {
+  height: 40px;
+}
+.search_bar input:enabled {
+  padding-left: 30px;
+}
+.search_bar div {
+  width: 100% !important;
+  position: relative;
+  margin-right: 15px;
+}
+.search_bar div i {
+  color: red;
+  position: absolute;
+  top: 11px;
+  left: 6px;
+  font-size: 18px;
+}
+
+.user_btn {
+  width: 42px;
+  height: 42px;
+  background-color: red;
+  border-radius: 50%;
+}
+.user_btn i {
+  color: #fff;
+  margin-left: -3px;
+}
+@media screen and (min-width: 992px) {
+  .search_bar {
+    width: 450px;
+  }
+}

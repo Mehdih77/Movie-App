@@ -1,0 +1,45 @@
+.custom_navbar li a {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.custom_navbar li a:hover,
+.custom_navbar li a:focus {
+  color: red;
+}
+
+/* Dropdown */
+.custom_dropdown {
+  padding: 5px;
+  border-radius: 0;
+  padding: 0;
+}
+.custom_dropdown a {
+  color: #000 !important;
+  padding: 10px;
+}
+.custom_dropdown a:hover {
+  background-color: red;
+  color: #fff !important;
+  width: 100.1%;
+  transition: all 0.3s linear;
+}
+
+@media screen and (min-width: 992px) {
+  .custom_navbar li a {
+    padding: 10px 20px !important;
+  }
+  .custom_navbar li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 20px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
