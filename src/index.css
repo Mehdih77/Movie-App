@@ -28,6 +28,12 @@ input:focus {
   margin-right: -15px !important;
   margin-left: -15px !important;
 }
+.slick-prev {
+  z-index: 999 !important;
+}
+.slick-next {
+  z-index: 999 !important;
+}
 .slick-prev:before,
 .slick-next:before {
   font-size: 30px !important;

@@ -1,0 +1,17 @@
+.custom_current_slider {
+  margin: 0 20px !important;
+}
+
+/* customize arrows */
+.current_slider_arrows .slick-prev{
+    left: 0px!important;     
+}
+.current_slider_arrows .slick-next{
+    right: 5px!important;     
+}
+
+@media screen and (min-width: 982px) {
+  .custom_current_slider {
+    margin: 0 50px !important;
+  }
+}

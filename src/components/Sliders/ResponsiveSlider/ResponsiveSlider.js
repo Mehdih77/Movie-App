@@ -38,10 +38,10 @@ export default function ResponsiveSlider({children}) {
       };
 
     return (
-        <div>
+        <>
         <Slider {...settings}>
           {children}
         </Slider>
-      </div>
+      </>
     )
 }

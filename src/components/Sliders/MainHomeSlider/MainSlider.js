@@ -18,7 +18,7 @@ export default function MainSlider() {
         <section className={`${styles.slider_wrapper} container-fluid`}>
             <Slider {...settings}>
                 <div className={`${styles.slider_item}`}>
-                    <div style={{backgroundImage: `url(${test1})`, width:"100%", height:"100%"}} className={`${styles.slider_content}`}>
+                    <div style={{backgroundImage: `url(${test1})`}} className={`${styles.slider_content}`}>
                         <div className={`${styles.slider_body}`}>
                             <div className={`${styles.slider_body_badge}`}>New</div>
                             <h2>City dreams</h2>
