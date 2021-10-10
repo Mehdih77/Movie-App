@@ -1,8 +1,6 @@
 import styles from './MainSlider.module.css';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import test1 from '../../img/test.jpg';
+import test1 from '../../../img/test.jpg';
 import { Link } from 'react-router-dom';
 
 export default function MainSlider() {

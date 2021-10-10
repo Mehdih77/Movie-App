@@ -1,0 +1,23 @@
+.popular_movies_title {
+  position: relative;
+  color: #fff;
+  margin: 60px 0 20px 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.popular_movies_title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 55px;
+  height: 3px;
+  background-color: red;
+}
+
+@media screen and (min-width: 982px) {
+  .popular_movies_title {
+    margin-left: 40px;
+    font-size: 28px;
+  }
+}
