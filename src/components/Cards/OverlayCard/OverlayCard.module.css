@@ -64,3 +64,26 @@
   background-color: #333;
   transition: all 0.2s ease-in;
 }
+@media screen and (max-width: 900px) {
+  .overlay_card_content {
+    width: 360px !important;
+    padding-left: 50px;
+    padding-top: 120px;
+  }
+  .overlay_card_img {
+    width: 65px;
+    left: 50px;
+    top: 30px;
+  }
+  .overlay_card_content h2 {
+    font-size: 50px;
+  }
+  .overlay_card_content p {
+    font-size: 12px;
+    width: 260px;
+  }
+  .overlay_card_btn button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+}

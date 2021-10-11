@@ -4,6 +4,7 @@ import PopularMovies from "../../components/PopularMovies/PopularMovies";
 import Top10Movies from "../../components/Top10Movies/Top10Movies";
 import TrendingNow from "../../components/TrendingNow/TrendingNow";
 import BestSeries from "../../components/BestSeries/BestSeries";
+import SuggestedForYou from "../../components/SuggestedForYou/SuggestedForYou";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
          <Top10Movies />
          <TrendingNow />
          <BestSeries />
+         <SuggestedForYou />
         </>
     )
 }

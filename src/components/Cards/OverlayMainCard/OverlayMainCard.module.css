@@ -64,6 +64,7 @@
   margin-right: 20px;
 }
 .slider_body p {
+  margin-top: 40px;
   font-size: 14px;
   color: #fff;
 }
@@ -92,6 +93,17 @@
   .slider_body {
     width: 400px;
     margin-left: 60px;
-    margin-top: 170px;
+    margin-top: 140px;
+  }
+  .slider_body h2 {
+    width: 280px;
+  }
+  .slider_body p {
+    font-size: 13px;
+    width: 280px;
+  }
+  .slider_body_btn button {
+    padding: 10px 30px;
+    font-size: 16px;
   }
 }

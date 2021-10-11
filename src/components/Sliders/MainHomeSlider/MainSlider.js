@@ -1,7 +1,6 @@
-import styles from './MainSlider.module.css';
 import Slider from "react-slick";
 import test1 from '../../../img/test.jpg';
-import { Link } from 'react-router-dom';
+import OverlayMainCard from '../../Cards/OverlayMainCard/OverlayMainCard';
 
 export default function MainSlider() {
 
@@ -15,56 +14,13 @@ export default function MainSlider() {
     };
 
     return (
-        <section className={`${styles.slider_wrapper} container-fluid`}>
+        <section className='container-fluid'>
             <Slider {...settings}>
-                <div className={`${styles.slider_item}`}>
-                    <div style={{backgroundImage: `url(${test1})`}} className={`${styles.slider_content}`}>
-                        <div className={`${styles.slider_body}`}>
-                            <div className={`${styles.slider_body_badge}`}>New</div>
-                            <h2>City dreams</h2>
-                            <div className={`${styles.slider_body_date}`}>
-                                <span>2021</span>
-                                <span>+18</span>
-                                <span>2h 6m</span>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                            <div className={`${styles.slider_body_btn}`}>
-                                <button><Link><i className="fas fa-info"></i>Details</Link></button>
-                                <button><Link><i className="fas fa-plus"></i>My List</Link></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={`${styles.slider_item}`}>
-                    <div style={{backgroundImage: `url(${test1})`, width:"100%", height:"100%"}} className={`${styles.slider_content}`}>
-                        <div className={`${styles.slider_body}`}>
-                            <div className={`${styles.slider_body_badge}`}>New</div>
-                            <h2>City dreams</h2>
-                            <div className={`${styles.slider_body_date}`}>
-                                <span>2021</span>
-                                <span>+18</span>
-                                <span>2h 6m</span>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                            <div className={`${styles.slider_body_btn}`}>
-                                <button><Link><i className="fas fa-info"></i>Details</Link></button>
-                                <button><Link><i className="fas fa-plus"></i>My List</Link></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
+                <OverlayMainCard img={test1} name={"City dreams"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
+                <OverlayMainCard img={test1} name={"The Earth"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
+                <OverlayMainCard img={test1} name={"F9"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
+                <OverlayMainCard img={test1} name={"Vikings"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
+                <OverlayMainCard img={test1} name={"City dreams"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
             </Slider>
         </section>
     )
