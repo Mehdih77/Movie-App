@@ -102,3 +102,15 @@ button.not_active_tab:hover {
 }
 
 /* ------------------------------- Watch List ------------------------------- */
+.empty_watch_list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.empty_watch_list i {
+  font-size: 60px;
+  color: rgb(255, 0, 0);
+  padding-bottom: 20px;
+}

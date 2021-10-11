@@ -30,7 +30,7 @@
 .custom_dropdown_genres div {
   display: flex;
   flex-wrap: wrap;
-  width: 350px;
+  width: 300px;
 }
 .custom_dropdown_genres div a {
   max-width: 50%;

@@ -6,6 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import MovieByGenre from './Pages/MovieByGenre/MovieByGenre';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Layout>
           <Route path='/' exact component={Home} />
           <Route path='/dashboard' exact component={Dashboard} />
+          <Route path='/genre' exact component={MovieByGenre} />
         </Layout>
       </Switch>
     </Router>

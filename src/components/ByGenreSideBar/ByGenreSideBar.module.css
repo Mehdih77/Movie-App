@@ -1,0 +1,53 @@
+.movie_by_genre_title {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+}
+.movie_by_genre_title span {
+  font-weight: 600;
+  position: relative;
+}
+.movie_by_genre_title span::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 3px;
+  background-color: red;
+  top: 30px;
+  left: -55px;
+}
+.movie_by_genre_sorting {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.movie_by_genre_sorting p {
+  margin-bottom: 5px;
+}
+.movie_by_genre_sorting form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.movie_by_genre_sorting input {
+  margin-right: 10px;
+}
+@media screen and (max-width: 767px) {
+  .movie_by_genre_title {
+    text-align: center;
+  }
+  .movie_by_genre_sorting {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .movie_by_genre_sorting p {
+    margin-right: 25px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .movie_by_genre_title span::after {
+    top: 60px;
+    left: -55px;
+  }
+}
