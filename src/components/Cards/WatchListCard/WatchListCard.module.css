@@ -1,0 +1,100 @@
+.watch_list_card {
+  color: #fff;
+  margin-top: 40px;
+}
+/* watch_list_card_details */
+.watch_list_card_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.watch_list_card_details img {
+  padding-top: 10px;
+  width: 180px;
+}
+.watch_list_card_details p:nth-child(2) {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: -1px;
+  text-transform: uppercase;
+}
+.watch_list_card_details p:last-child {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 15px;
+  color: #959595;
+}
+.watch_list_card_details span {
+  font-size: 13px;
+  color: #c3c3c3;
+  margin: 0 8px;
+}
+/* watch_list_card_btns */
+.watch_list_card_btns {
+  text-align: center;
+  margin-bottom: 20px;
+  border-top: 1px solid #959595;
+  border-bottom: 1px solid #959595;
+  padding: 20px 0;
+}
+.watch_list_card_btns p {
+  margin-bottom: 0;
+  color: rgb(240, 240, 240);
+}
+.watch_list_card_btns button {
+  width: 45%;
+  margin: 10px 10px 0 0;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 16px;
+}
+.watch_list_card_btns button:nth-child(1) {
+  background-color: #0076ca;
+}
+.watch_list_card_btns button:nth-child(2) {
+  background-color: #224f37;
+}
+.watch_list_card_btns button:nth-child(3) {
+  background-color: #ff8321;
+}
+.watch_list_card_btns button:nth-child(4) {
+  background-color: #ca0000;
+}
+.watch_list_card_btns img {
+  width: 25px;
+  margin-right: 10px;
+}
+.watch_list_card_btns img[alt="netflix"] {
+  width: 20px;
+  vertical-align: -3px;
+}
+.watch_list_card_btns i {
+  margin-right: 10px;
+}
+/* watch_list_card_actions */
+.watch_list_card_actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(121, 0, 0);
+}
+.watch_list_card_actions button {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  color: rgb(233, 233, 233);
+  align-items: center;
+  font-size: 15px;
+}
+.watch_list_card_actions button:hover {
+  text-shadow: 0px 0px 5px rgb(184 184 184);
+}
+.watch_list_card_actions button i {
+  font-size: 26px;
+  margin-bottom: 5px;
+}

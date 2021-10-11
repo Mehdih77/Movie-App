@@ -26,7 +26,7 @@ button.not_active_tab:hover {
     padding-left: 45px;
   }
 }
-
+/* ------------------------------- Profile Settings ------------------------------- */
 /* profile_settings */
 .profile_settings {
   color: #fff;
@@ -100,3 +100,5 @@ button.not_active_tab:hover {
   background-color: #333;
   transition: all 0.2s ease-in;
 }
+
+/* ------------------------------- Watch List ------------------------------- */
