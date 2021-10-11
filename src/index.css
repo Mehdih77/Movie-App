@@ -11,6 +11,9 @@ body {
 a {
   text-decoration: none;
 }
+li {
+  list-style: none;
+}
 button:focus {
   box-shadow: none !important;
   outline: none !important;
