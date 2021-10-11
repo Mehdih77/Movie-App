@@ -14,19 +14,19 @@ const MainMovies = () => {
         setMovies(false);
         setShows(false);
         setFeatured(true);
-    },[featured,setFeatured]);
+    },[]);
 
     const handleShowMovies = useCallback(() => {
         setFeatured(false);
         setShows(false);
         setMovies(true);
-    },[movies,setMovies]);
+    },[]);
 
     const handleShowShows = useCallback(() => {
         setShows(true);
         setMovies(false);
         setFeatured(false);
-    },[shows,setShows]);
+    },[]);
 
     return (
         <>
@@ -48,4 +48,4 @@ const MainMovies = () => {
     )
 }
 
-export default React.memo(MainMovies);
+export default MainMovies;

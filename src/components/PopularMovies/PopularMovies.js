@@ -1,4 +1,4 @@
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../Cards/MovieCard/MovieCard';
 import ResponsiveSlider from "../Sliders/ResponsiveSlider/ResponsiveSlider";
 import styles from './PopularMovies.module.css';
 

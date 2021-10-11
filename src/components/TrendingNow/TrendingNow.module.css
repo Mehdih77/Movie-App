@@ -1,0 +1,23 @@
+.trending_movies_title {
+  position: relative;
+  color: #fff;
+  margin: 70px 0 30px 0px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.trending_movies_title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 55px;
+  height: 3px;
+  background-color: red;
+}
+
+@media screen and (min-width: 982px) {
+  .trending_movies_title {
+    margin-left: 30px;
+    font-size: 28px;
+  }
+}

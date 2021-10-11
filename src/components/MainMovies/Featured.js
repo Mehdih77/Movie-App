@@ -1,4 +1,4 @@
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../Cards/MovieCard/MovieCard';
 
 export default function Featured() {
     return (

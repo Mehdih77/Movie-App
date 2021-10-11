@@ -1,0 +1,58 @@
+/* main style */
+.main_movies_tabs {
+  margin-top: 20px;
+  text-align: center;
+  z-index: 2;
+  margin-bottom: -50px;
+}
+.main_movies_tabs button {
+  font-size: 14px;
+  color: #fff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+button.active_tabs {
+  background-color: red;
+  transition: all 0.4s linear;
+}
+button.not_active_tab:hover {
+  color: red;
+  transition: all 0.3s linear;
+}
+.best_series_wrapper {
+  position: relative;
+  margin: 100px 0;
+}
+.best_series_wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.best_series_title {
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  padding-top: 50px;
+}
+.best_series_title p:nth-child(1) {
+  font-weight: 600;
+}
+.best_series_title p:nth-child(2) {
+  font-weight: 700;
+  font-size: 45px;
+}
+.best_series_title p:nth-child(3) {
+  font-size: 13px;
+}
+.best_series_content {
+  position: relative;
+  top: 90px;
+}
