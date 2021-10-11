@@ -1,0 +1,102 @@
+/* main style */
+.main_movies_tabs {
+  margin-top: 60px;
+}
+.main_movies_tabs button {
+  font-size: 14px;
+  color: #fff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+button.active_tabs {
+  background-color: red;
+  transition: all 0.4s linear;
+}
+button.not_active_tab:hover {
+  color: red;
+  transition: all 0.3s linear;
+}
+
+@media screen and (min-width: 982px) {
+  .main_movies_tabs {
+    padding-left: 45px;
+  }
+}
+
+/* profile_settings */
+.profile_settings {
+  color: #fff;
+  padding: 30px 45px;
+}
+.profile_settings_details {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.profile_settings_details div:first-child img {
+  width: 150px;
+}
+.profile_settings_details div:last-child {
+  margin-left: 30px;
+}
+.profile_settings_details div:last-child p:nth-child(1) {
+  font-weight: 700;
+  font-size: 33px;
+}
+.profile_settings_details div:last-child p:nth-child(2) {
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+/* profile_settings_form */
+.profile_settings_form {
+  display: flex;
+  flex-direction: column;
+}
+.profile_settings_form h5 {
+  font-weight: 600;
+  font-size: 19px;
+  border-bottom: 1px solid #fff;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+.profile_settings_input {
+  display: flex;
+  flex-direction: column;
+}
+.profile_settings_input input,
+.profile_settings_input select {
+  border-radius: 0 !important;
+  background-color: transparent;
+  color: #959595;
+  border: 1px solid #fff;
+  padding: 13px 20px;
+  font-size: 13px;
+}
+.profile_settings_input input:focus,
+.profile_settings_input select:focus {
+  background-color: #fff;
+  border: 1px solid red;
+  outline: none;
+}
+.profile_settings_input span {
+  padding: 20px 0 8px 0;
+  font-size: 15px;
+}
+.profile_settings_form button {
+  color: #fff;
+  margin-top: 30px;
+  background-color: red;
+  outline: none;
+  border: none;
+  padding: 10px 25px;
+  margin-right: 20px;
+}
+.profile_settings_form button:hover {
+  color: #fff;
+  background-color: #333;
+  transition: all 0.2s ease-in;
+}

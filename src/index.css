@@ -20,6 +20,7 @@ button:focus {
 }
 input {
   border-radius: 8px !important;
+  outline: none;
 }
 input:focus {
   box-shadow: none !important;

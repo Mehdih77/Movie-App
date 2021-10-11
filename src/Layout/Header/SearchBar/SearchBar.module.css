@@ -25,6 +25,9 @@
   left: 6px;
   font-size: 17px;
 }
+.search_bar div button:hover {
+  color: red;
+}
 .search_bar div button:focus {
   transform: scale(0.9);
 }

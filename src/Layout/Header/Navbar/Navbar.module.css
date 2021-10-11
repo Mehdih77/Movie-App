@@ -27,6 +27,18 @@
   transition: all 0.3s linear;
 }
 
+.custom_dropdown_genres div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+}
+.custom_dropdown_genres div a {
+  max-width: 50%;
+  flex: 50%;
+  padding-right: 70px;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 992px) {
   .custom_navbar li a {
     padding: 10px 20px !important;

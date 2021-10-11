@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
@@ -11,9 +12,11 @@ export default function SearchBar() {
                 aria-label="Search"/>
                 <button><i className="fas fa-search"></i></button>
             </div>
-            <button className={`${styles.user_btn} btn`} type="submit">
-                <i className="fas fa-user"></i>
-            </button>
+            <Link to='/dashboard' href='/dashboard'>
+                <button className={`${styles.user_btn} btn`} type="submit">
+                    <i className="fas fa-user"></i>
+                </button>
+            </Link>
         </form>
     )
 }
