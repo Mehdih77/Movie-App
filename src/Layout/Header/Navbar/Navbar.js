@@ -8,7 +8,7 @@ export default function Navbar() {
                 <a className="nav-link active" aria-current="page" href="#">HOME</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#">MOVIES</a>
+                <Link to='/pricing' className="nav-link" href="/pricing">Pricing Plans</Link>
             </li>
             <li className="nav-item dropdown">
                 <a

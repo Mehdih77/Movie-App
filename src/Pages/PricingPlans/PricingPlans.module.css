@@ -1,0 +1,53 @@
+/* Prallax */
+.parallax {
+  background-image: linear-gradient(
+      to right,
+      rgb(12, 21, 26),
+      rgba(0, 0, 0, 0.69)
+    ),
+    url(../../img/best-series-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+.parallax h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 53px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.parallax div,
+.parallax div a {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+.parallax div a:hover {
+  color: #c80000;
+  transition: all 0.3s linear;
+}
+.parallax div i:nth-child(1) {
+  padding-right: 12px;
+}
+.parallax div i:nth-child(3) {
+  padding: 0 12px;
+  font-size: 10px;
+}
+/* pricing_title */
+.pricing_title {
+  text-align: center;
+  color: #fff;
+  margin-top: 100px;
+}
+.pricing_title h4 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.pricing_title p {
+  font-size: 14px;
+}

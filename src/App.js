@@ -12,6 +12,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import PricingPlans from './Pages/PricingPlans/PricingPlans';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Layout>
           <Route path='/' exact component={Home} />
           <Route path='/dashboard' exact component={Dashboard} />
+          <Route path='/pricing' exact component={PricingPlans} />
           <Route path='/genre' exact component={MovieByGenre} />
           <Route path='/nowplaying' exact component={NowPlaying} />
           <Route path='/toprated' exact component={TopRated} />
