@@ -37,7 +37,7 @@ export default function PricingPlansCard({type}) {
             {type === 'premium' && <div className={styles.pricing_card_wrapper}>
                 <div className={styles.pricing_card_title}>
                     <h5>PREMIUM</h5>
-                    <p>$0 <sub>/month</sub></p>
+                    <p>$120 <sub>/month</sub></p>
                 </div>
                 <div className={styles.pricing_card_content_premium}>
                     <li><i className="fas fa-check"></i> New Movies</li>

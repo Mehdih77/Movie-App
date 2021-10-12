@@ -1,5 +1,6 @@
 import styles from './SingleMoviePage.module.css';
 import MoviePageCard from '../../components/Cards/MoviePageCard/MoviePageCard';
+import RelatedMovies from '../../components/RelatedMovies/RelatedMovies';
 
 export default function SingleMoviePage() {
     return (
@@ -9,7 +10,8 @@ export default function SingleMoviePage() {
                 <div className="row my-5">
                     <MoviePageCard />
                 </div>
+                <RelatedMovies />
             </section>
-    </>
+        </>
     )
 }

@@ -5,7 +5,7 @@ export default function Navbar() {
     return (
         <ul className={`${styles.custom_navbar} navbar-nav me-auto mb-2 mb-lg-0`}>
             <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">HOME</a>
+                <Link to='/' className="nav-link active" aria-current="page" href="/">HOME</Link>
             </li>
             <li className="nav-item">
                 <Link to='/pricing' className="nav-link" href="/pricing">Pricing Plans</Link>

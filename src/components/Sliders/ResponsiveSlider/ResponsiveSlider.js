@@ -8,8 +8,8 @@ export default function ResponsiveSlider({children}) {
         dots: true,
         infinite: false,
         speed: 1000,
-        slidesToShow: 5,
-        slidesToScroll: 5,
+        slidesToShow: 6,
+        slidesToScroll: 6,
         initialSlide: 0,
         responsive: [
           {

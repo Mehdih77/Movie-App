@@ -34,6 +34,7 @@
 /* RIGHT */
 .movie_page_card_right {
   margin-left: 30px;
+  width: 90%;
 }
 .movie_page_card_right h2 {
   font-weight: 600;
@@ -96,8 +97,17 @@
   }
   .movie_page_card_left {
     margin-left: 0px;
+    margin-top: -150px;
+  }
+  .movie_page_card_left img {
+    max-width: 100%;
+    text-align: center;
+    margin-left: 20px;
   }
   .movie_page_card_right {
     margin-left: 0px;
+  }
+  .movie_page_card_right_btns button {
+    width: 43%;
   }
 }
