@@ -1,0 +1,103 @@
+.movie_page_card_wrapper {
+  display: flex;
+  /* flex-wrap: wrap; */
+  color: #fff;
+}
+/* LEFT */
+.movie_page_card_left {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+.movie_page_card_left_content {
+  margin: 15px;
+}
+.movie_page_card_left_content span {
+  margin: 0 15px;
+  color: #a3a3a3;
+  font-size: 16px;
+}
+.movie_page_card_left_content span:nth-child(3) i {
+  color: #ffc107;
+  font-size: 23px;
+  vertical-align: -2px;
+  padding-right: 3px;
+}
+.movie_page_card_left_content span:nth-child(4) i {
+  color: #ffc107;
+  font-size: 12px;
+  vertical-align: 1px;
+  padding-right: 3px;
+}
+/* RIGHT */
+.movie_page_card_right {
+  margin-left: 30px;
+}
+.movie_page_card_right h2 {
+  font-weight: 600;
+  margin: 20px 0;
+}
+.movie_page_card_right_info {
+  color: #a3a3a3;
+}
+.movie_page_card_right_info span {
+  margin-right: 35px;
+  font-size: 16px;
+}
+.movie_page_card_right_desc {
+  font-size: 14px;
+  margin: 40px 0;
+  width: 90%;
+}
+.movie_page_card_right_cast {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie_page_card_right_cast div:first-child {
+  margin-right: 230px;
+}
+.movie_page_card_right_cast div:first-child p:last-child {
+  white-space: nowrap;
+}
+.movie_page_card_right_cast div p:first-child {
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.movie_page_card_right_cast div p:last-child {
+  font-size: 14px;
+  width: 60%;
+}
+.movie_page_card_right_btns button {
+  color: #fff;
+  margin-top: 30px;
+  background-color: red;
+  outline: none;
+  border: none;
+  padding: 10px 0px;
+  width: 280px;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+.movie_page_card_right_btns button i {
+  padding-right: 10px;
+}
+.movie_page_card_right_btns button:hover {
+  color: #fff;
+  background-color: #333;
+  transition: all 0.2s ease-in;
+}
+
+@media screen and (max-width: 1146px) {
+  .movie_page_card_wrapper {
+    flex-wrap: wrap;
+  }
+  .movie_page_card_left {
+    margin-left: 0px;
+  }
+  .movie_page_card_right {
+    margin-left: 0px;
+  }
+}
