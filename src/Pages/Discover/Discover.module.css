@@ -1,0 +1,41 @@
+.discover_page {
+  padding-right: 30px !important;
+}
+.discover_title {
+  position: relative;
+  color: #fff;
+  font-size: 26px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+.discover_title::after {
+  content: "";
+  position: absolute;
+  width: 270px;
+  height: 3px;
+  background-color: red;
+  left: 30px;
+  top: 40px;
+}
+.search_keyword_title {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+.search_keyword_title span:first-child {
+  color: rgb(194, 194, 194);
+  font-size: 20px;
+}
+.search_keyword_title span:last-child {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+}
+.search_keyword_title::after {
+  content: "";
+  position: absolute;
+  width: 410px;
+  height: 3px;
+  background-color: red;
+  left: 30px;
+  top: 40px;
+}

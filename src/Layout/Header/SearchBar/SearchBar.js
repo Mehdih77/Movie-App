@@ -1,7 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
+
+    const history = useHistory();
+
+    const handleSearchByKeyword = (e) => {
+        e.preventDefault();
+        history.push('/searched')
+    }
+
     return (
         <form className={`${styles.search_bar}`}>
             <div>
@@ -10,7 +18,7 @@ export default function SearchBar() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"/>
-                <button><i className="fas fa-search"></i></button>
+                <button onClick={handleSearchByKeyword}><i className="fas fa-search"></i></button>
             </div>
             <Link to='/dashboard' href='/dashboard'>
                 <button className={`${styles.user_btn} btn`} type="submit">
