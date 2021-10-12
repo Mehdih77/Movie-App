@@ -1,4 +1,5 @@
 import PersonCard from '../../components/Cards/PersonCard/PersonCard';
+import RelatedMovies from '../../components/RelatedMovies/RelatedMovies';
 import styles from './Person.module.css';
 
 export default function Person() {
@@ -9,6 +10,7 @@ export default function Person() {
                 <div className="row my-5">
                     <PersonCard />
                 </div>
+                <RelatedMovies />
             </section>
         </>
     )

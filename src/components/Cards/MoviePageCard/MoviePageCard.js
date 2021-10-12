@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './MoviePageCard.module.css';
 
 export default function MoviePageCard() {
@@ -10,9 +11,9 @@ export default function MoviePageCard() {
                 <div className={styles.movie_page_card_left_content}>
                     <span>1080p</span>
                     <span>24p</span>
-                    <span>
+                    <Link to='/movies'>
                         <i className="fab fa-imdb"></i>
-                    </span>
+                    </Link>
                     <span>
                         <i className="fas fa-star"></i>
                         7.1</span>
@@ -21,11 +22,18 @@ export default function MoviePageCard() {
             <div className={styles.movie_page_card_right}>
                 <h2>THE DARK KNIGHT RISES</h2>
                 <div className={styles.movie_page_card_right_info}>
-                    <span><i className="far fa-user"></i> 18+</span>
-                    <span><i className="far fa-clock"></i> 2hr 45min</span>
-                    <span><i className="fas fa-calendar-day"></i> 2021</span>
-                    <span><i className="fas fa-video"></i> Action</span>
-                    <span><i className="fas fa-globe-americas"></i> United States</span>
+                    <div>
+                        <p><i className="far fa-clock"></i>Duration: <span>2hr 45min</span></p>
+                        <p><i className="fas fa-video"></i>Director: <span>Andy Serkis</span></p>
+                        <p><i className="fas fa-calendar-day"></i>Release Date: <span>2021-09-30</span></p>
+                        <p><i className="fas fa-language"></i>Language: <span>English</span></p>
+                    </div>
+                    <div>
+                        <p><i className="fas fa-film"></i>Genres: <span>Science Fiction, Action</span></p>
+                        <p><i className="fas fa-dollar-sign"></i>Budget: <span>$110,000,000</span></p>
+                        <p><i className="far fa-building"></i> Company: <span>Marvel Entertainment, Pascal Pictures, Columbia Pictures, Sony Pictures, Tencent Pictures</span></p>
+                        <p><i className="fas fa-globe-americas"></i>Country: <span>China,United States of America</span></p>
+                    </div>
                 </div>
                 <p className={styles.movie_page_card_right_desc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

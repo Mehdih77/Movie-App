@@ -11,6 +11,11 @@
   align-items: center;
   margin-left: 30px;
 }
+.movie_page_card_left img {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 6px 6px 32px -12px rgb(0 0 0 / 75%);
+}
 .movie_page_card_left_content {
   margin: 15px;
 }
@@ -19,11 +24,14 @@
   color: #a3a3a3;
   font-size: 16px;
 }
-.movie_page_card_left_content span:nth-child(3) i {
+.movie_page_card_left_content a i {
   color: #ffc107;
   font-size: 23px;
   vertical-align: -2px;
   padding-right: 3px;
+}
+.movie_page_card_left_content a i:hover {
+  transform: scale(1.1);
 }
 .movie_page_card_left_content span:nth-child(4) i {
   color: #ffc107;
@@ -42,10 +50,22 @@
 }
 .movie_page_card_right_info {
   color: #a3a3a3;
+  display: flex;
+  flex-direction: row;
 }
-.movie_page_card_right_info span {
+.movie_page_card_right_info div {
+  display: flex;
+  flex-direction: column;
+}
+.movie_page_card_right_info p {
   margin-right: 35px;
   font-size: 16px;
+}
+.movie_page_card_right_info i {
+  margin-right: 5px;
+}
+.movie_page_card_right_info p span {
+  color: #dddddd;
 }
 .movie_page_card_right_desc {
   font-size: 14px;
@@ -106,6 +126,9 @@
   }
   .movie_page_card_right {
     margin-left: 0px;
+  }
+  .movie_page_card_right_info {
+    flex-wrap: wrap;
   }
   .movie_page_card_right_btns button {
     width: 43%;
