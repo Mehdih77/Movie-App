@@ -24,14 +24,14 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/dashboard' exact component={Dashboard} />
           <Route path='/pricing' exact component={PricingPlans} />
-          <Route path='/movies' exact component={SingleMoviePage} />
-          <Route path='/person' exact component={Person} />
-          <Route path='/genre' exact component={MovieByGenre} />
+          <Route path='/movies/:id' exact component={SingleMoviePage} />
+          <Route path='/person/:id' exact component={Person} />
+          <Route path='/genre/:name/:id' exact component={MovieByGenre} />
           <Route path='/nowplaying' exact component={NowPlaying} />
           <Route path='/toprated' exact component={TopRated} />
           <Route path='/popular' exact component={Popular} />
           <Route path='/upcoming' exact component={Upcoming} />
-          <Route path='/searched' exact component={MovieBySearch} />
+          <Route path='/searched/:movie' exact component={MovieBySearch} />
         </Layout>
       </Switch>
     </Router>
