@@ -47,6 +47,7 @@
 .movie_page_card_right h2 {
   font-weight: 600;
   margin: 20px 0;
+  text-transform: uppercase;
 }
 .movie_page_card_right_info {
   color: #a3a3a3;

@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState,useEffect,useCallback } from 'react';
+import styles from './Discover.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchDiscoverMovies, getMoviesList, getTotalResults } from '../../Redux/discoverSlice';
 import Card from '../../components/Cards/Card/Card';
 import Pagination from '../../components/Pagination/Pagination';
-import { fetchDiscoverMovies, getMoviesList, getTotalResults } from '../../Redux/discoverSlice';
-import styles from './Discover.module.css';
 
 export default function NowPlaying() {
 
@@ -24,10 +24,12 @@ export default function NowPlaying() {
 
     const showMoviesList = moviesList.map(movie => (
         <div className="col-6 col-md-4 col-xl-2">
-            <Card img={movie.poster_path}
-                  name={movie.title} 
-                  star={movie.vote_average}
-                  year={movie.release_date.split("-").join().slice(0,4)} />
+            <Card 
+                id={movie.id}
+                img={movie.poster_path}
+                name={movie.title} 
+                star={movie.vote_average}
+                year={movie.release_date.split("-").join().slice(0,4)} />
         </div>
     ))
 

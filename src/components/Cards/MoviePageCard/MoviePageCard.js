@@ -1,47 +1,65 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { fetchSingleMovie, fetchSingleMovieCredits, getSingleMovie, getSingleMovieCredits } from '../../../Redux/singleMovieSlice';
 import styles from './MoviePageCard.module.css';
 
-export default function MoviePageCard() {
+export default function MoviePageCard({movieId}) {
+
+    const movieData = useSelector(getSingleMovie);
+    const movieCredits = useSelector(getSingleMovieCredits);
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchSingleMovie({
+            id: movieId
+        }));
+        dispatch(fetchSingleMovieCredits({
+            id: movieId
+        }));
+    }, [movieId])
+    
+    // movie data
+    const imageUrl = `https://image.tmdb.org/t/p/w780/${movieData.poster_path}`;
+    const movieLang = movieData.spoken_languages?.map(lang => `${lang.name}`).join(" , ") ;
+    const movieGenre = movieData.genres?.map(genre => `${genre.name}`).join(" , ") ;
+    const movieCompanies = movieData.production_companies?.map(companies => `${companies.name}`).join(" , ") ;
+    const movieCountries = movieData.production_countries?.map(countries => `${countries.name}`).join(" , ") ;
+    // const director = movieCredits.crew && movieCredits.crew.filter(c => c.department == "Directing");
+
     return (
         <div className={styles.movie_page_card_wrapper}>
             <div className={styles.movie_page_card_left}>
                 <div>
-                    <img src="/images/movie5.jpg" alt="movie-page"/>
+                    <img src={imageUrl} alt="movie-page"/>
                 </div>
                 <div className={styles.movie_page_card_left_content}>
                     <span>1080p</span>
                     <span>24p</span>
-                    <Link to='/movies'>
+                    <a href={movieData.homepage}>
                         <i className="fab fa-imdb"></i>
-                    </Link>
+                    </a>
                     <span>
                         <i className="fas fa-star"></i>
-                        7.1</span>
+                        {movieData.vote_average}</span>
                 </div>
             </div>
             <div className={styles.movie_page_card_right}>
-                <h2>THE DARK KNIGHT RISES</h2>
+                <h2>{movieData.title}</h2>
                 <div className={styles.movie_page_card_right_info}>
                     <div>
-                        <p><i className="far fa-clock"></i>Duration: <span>2hr 45min</span></p>
-                        <p><i className="fas fa-video"></i>Director: <span>Andy Serkis</span></p>
-                        <p><i className="fas fa-calendar-day"></i>Release Date: <span>2021-09-30</span></p>
-                        <p><i className="fas fa-language"></i>Language: <span>English</span></p>
+                        <p><i className="far fa-clock"></i>Duration: <span>{movieData.runtime}m</span></p>
+                        {/* <p><i className="fas fa-video"></i>Director: <span>{movieCredits.crew && director}</span></p> */}
+                        <p><i className="fas fa-calendar-day"></i>Release Date: <span>{movieData.release_date}</span></p>
+                        <p><i className="fas fa-language"></i>Language: <span>{movieData && movieLang}</span></p>
                     </div>
                     <div>
-                        <p><i className="fas fa-film"></i>Genres: <span>Science Fiction, Action</span></p>
-                        <p><i className="fas fa-dollar-sign"></i>Budget: <span>$110,000,000</span></p>
-                        <p><i className="far fa-building"></i> Company: <span>Marvel Entertainment, Pascal Pictures, Columbia Pictures, Sony Pictures, Tencent Pictures</span></p>
-                        <p><i className="fas fa-globe-americas"></i>Country: <span>China,United States of America</span></p>
+                        <p><i className="fas fa-film"></i>Genres: <span>{movieGenre}</span></p>
+                        <p><i className="fas fa-dollar-sign"></i>Budget: <span>${movieData.budget}</span></p>
+                        <p><i className="far fa-building"></i> Company: <span>{movieCompanies}</span></p>
+                        <p><i className="fas fa-globe-americas"></i>Country: <span>{movieCountries}</span></p>
                     </div>
                 </div>
-                <p className={styles.movie_page_card_right_desc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <p className={styles.movie_page_card_right_desc}>{movieData.overview}</p>
                 <div className={styles.movie_page_card_right_cast}>
                     <div>
                         <p>Director</p>

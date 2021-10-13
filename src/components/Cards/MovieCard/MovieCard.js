@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import styles from './MovieCard.module.css';
 
 export default function MovieCard({responsive = true,img,year,genres,name,age}) {
+
+    const imageUrl = `https://image.tmdb.org/t/p/w342/${img}`
+
     return (
         <div className={responsive && "col-6 col-md-4 col-xl-2"}>
                 <div className={styles.card}>
@@ -9,7 +12,7 @@ export default function MovieCard({responsive = true,img,year,genres,name,age}) 
                         <button title='More Detail'><Link><i className="fas fa-info"></i></Link></button>
                         <button title='Add To Watch List'><i className="fas fa-plus"></i></button>
                     </div>
-                    <img className='img-fluid' src={img} alt="movies" />
+                    <img className='img-fluid' src={imageUrl} alt={name} />
                     <div className={styles.card_content}>
                         <p>{name}</p>
                         <div>

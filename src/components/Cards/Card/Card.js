@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
-export default function Card({img,name,year,star}) {
+export default function Card({id,img,name,year,star}) {
 
     const imageUrl = `https://image.tmdb.org/t/p/w342/${img}`
 
     return (
         <div className={styles.card_wrapper}>
-            <Link to='/'>
+            <Link to={`/movies/${id}`}>
                 <img src={imageUrl} alt={name} />
                 <div className={styles.card_content}>
                     <p>{name}</p>
