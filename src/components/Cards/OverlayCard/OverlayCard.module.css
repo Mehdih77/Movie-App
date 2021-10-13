@@ -17,7 +17,7 @@
   position: relative;
   width: 410px !important;
   padding-left: 70px;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 .overlay_card_content::before {
   content: "";
@@ -35,7 +35,7 @@
   z-index: -1;
 }
 .overlay_card_content h2 {
-  font-size: 65px;
+  font-size: 45px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 900;
@@ -45,6 +45,7 @@
   color: #fff;
 }
 .overlay_card_btn button {
+  color: #fff;
   margin-top: 10px;
   background-color: red;
   outline: none;

@@ -31,8 +31,6 @@ const discoverSlice = createSlice({
     }
 })
 
-export const {} = discoverSlice.actions;
-
 export default discoverSlice.reducer;
 
 export const getMoviesList = (state) => state.discover.movies;

@@ -15,7 +15,7 @@
 .slider_body {
   width: 500px;
   margin-left: 90px;
-  margin-top: 180px;
+  margin-top: 60px;
 }
 .slider_content::before {
   content: "";
@@ -69,7 +69,7 @@
   color: #fff;
 }
 .slider_body_btn button {
-  margin-top: 10px;
+  color: #fff;
   background-color: red;
   outline: none;
   border: none;
@@ -93,9 +93,10 @@
   .slider_body {
     width: 400px;
     margin-left: 60px;
-    margin-top: 140px;
+    margin-top: 80px;
   }
   .slider_body h2 {
+    font-size: 35px;
     width: 280px;
   }
   .slider_body p {

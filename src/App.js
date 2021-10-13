@@ -15,6 +15,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import SingleTvPage from './Pages/SingleTvPage/SingleTvPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/dashboard' exact component={Dashboard} />
           <Route path='/pricing' exact component={PricingPlans} />
           <Route path='/movies/:id' exact component={SingleMoviePage} />
+          <Route path='/tv/:id' exact component={SingleTvPage} />
           <Route path='/person/:id' exact component={Person} />
           <Route path='/genre/:name/:id' exact component={MovieByGenre} />
           <Route path='/nowplaying' exact component={NowPlaying} />

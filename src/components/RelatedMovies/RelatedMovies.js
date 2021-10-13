@@ -14,7 +14,7 @@ export default function RelatedMovies({movieId}) {
         dispatch(fetchSingleMovieSimilar({
             id: movieId
         }));
-    }, [movieId])
+    }, [movieId,dispatch])
 
     const showRelatedMovies = movieSimilar.slice(0,12).map(movie => (
         <div className='px-1'>

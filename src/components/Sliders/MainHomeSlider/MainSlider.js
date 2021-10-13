@@ -1,8 +1,32 @@
+import { useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
+import {fetchDiscoverMovies, getMoviesList} from '../../../Redux/discoverSlice';
 import Slider from "react-slick";
-import test1 from '../../../img/test.jpg';
 import OverlayMainCard from '../../Cards/OverlayMainCard/OverlayMainCard';
 
 export default function MainSlider() {
+
+  const moviesList = useSelector(getMoviesList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchDiscoverMovies({
+          path: "now_playing"
+      }));
+  }, [dispatch])
+
+  const showMovies = moviesList.slice(0,6).map(movie => (
+    <OverlayMainCard 
+      key={movie.id}
+      id={movie.id}
+      img={movie.backdrop_path} 
+      name={movie.title} 
+      year={movie.release_date.split("-").join().slice(0,4)}
+      age={"+18"} 
+      time={"2h 36m"} 
+      detail={movie.overview}  />
+  ))
+
 
     const settings = {
         infinite: true,
@@ -16,11 +40,7 @@ export default function MainSlider() {
     return (
         <section className='container-fluid'>
             <Slider {...settings}>
-                <OverlayMainCard img={test1} name={"City dreams"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
-                <OverlayMainCard img={test1} name={"The Earth"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
-                <OverlayMainCard img={test1} name={"F9"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
-                <OverlayMainCard img={test1} name={"Vikings"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
-                <OverlayMainCard img={test1} name={"City dreams"} year={"2021"} age={"+18"} time={"2h 36m"} detail={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."}  />
+              {showMovies}
             </Slider>
         </section>
     )

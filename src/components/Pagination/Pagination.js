@@ -25,7 +25,7 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
             key={number}
             id={number}
             onClick={handleClick}
-            className={currentPage == number ? `${styles.active_page_nubmer}` : null}
+            className={currentPage === number ? `${styles.active_page_nubmer}` : null}
           >
             {number}
           </li>
@@ -47,7 +47,7 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
     const handlePrevbtn = () => {
        changePage(currentPage - 1);
   
-      if ((currentPage - 1) % pageNumberLimit == 0) {
+      if ((currentPage - 1) % pageNumberLimit === 0) {
         setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
         setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
       }
@@ -69,7 +69,7 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
           <li>
             <button
               onClick={handlePrevbtn}
-              disabled={currentPage == pages[0] ? true : false}
+              disabled={currentPage === pages[0] ? true : false}
             >
               Prev
             </button>
@@ -80,7 +80,7 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
           <li>
             <button
               onClick={handleNextbtn}
-              disabled={currentPage == pages[pages.length - 1] ? true : false}
+              disabled={currentPage === pages[pages.length - 1] ? true : false}
             >
               Next
             </button>

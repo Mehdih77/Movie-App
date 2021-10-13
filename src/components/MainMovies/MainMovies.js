@@ -1,8 +1,8 @@
+import { useCallback, useState } from 'react';
+import styles from './MainMovies.module.css';
 import Featured from './Featured';
 import Movies from './Movies';
 import Shows from './Shows';
-import styles from './MainMovies.module.css';
-import React, { useCallback, useState } from 'react';
 
 const MainMovies = () => {
 

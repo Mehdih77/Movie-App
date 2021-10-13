@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import styles from './OverlayMainCard.module.css';
 
-export default function OverlayMainCard({img,name,year,age,time,detail}) {
+export default function OverlayMainCard({id,img,name,year,age,time,detail}) {
+
+    const imageUrl = `https://image.tmdb.org/t/p/original/${img}`;
+
     return (
         <div className={`${styles.slider_item}`}>
             <div
                 style={{
-                backgroundImage: `url(${img})`
+                backgroundImage: `url(${imageUrl})`
             }}
                 className={`${styles.slider_content}`}>
                 <div className={`${styles.slider_body}`}>
@@ -19,13 +22,13 @@ export default function OverlayMainCard({img,name,year,age,time,detail}) {
                     </div>
                     <p>{detail}</p>
                     <div className={`${styles.slider_body_btn}`}>
+                        <Link to={`/movies/${id}`}>
+                            <button>
+                                    <i className="fas fa-info"></i>Details
+                            </button>
+                        </Link>
                         <button>
-                            <Link>
-                                <i className="fas fa-info"></i>Details</Link>
-                        </button>
-                        <button>
-                            <Link>
-                                <i className="fas fa-plus"></i>My List</Link>
+                                <i className="fas fa-plus"></i>My List
                         </button>
                     </div>
                 </div>

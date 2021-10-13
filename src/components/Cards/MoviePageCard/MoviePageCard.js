@@ -17,7 +17,7 @@ export default function MoviePageCard({movieId}) {
         dispatch(fetchSingleMovieCredits({
             id: movieId
         }));
-    }, [movieId])
+    }, [movieId,dispatch])
     
     // movie data
     const imageUrl = `https://image.tmdb.org/t/p/w780/${movieData.poster_path}`;
@@ -28,8 +28,6 @@ export default function MoviePageCard({movieId}) {
     const director = movieCredits.crew?.filter(c => c.job === "Director");
     const castName = movieCredits.cast;
 
-    console.log(director);
-
     return (
         <div className={styles.movie_page_card_wrapper}>
             <div className={styles.movie_page_card_left}>
@@ -39,7 +37,7 @@ export default function MoviePageCard({movieId}) {
                 <div className={styles.movie_page_card_left_content}>
                     <span>1080p</span>
                     <span>24p</span>
-                    <a href={movieData.homepage} target='_blank'>
+                    <a href={movieData.homepage} rel="noreferrer" target='_blank'>
                         <i className="fab fa-imdb"></i>
                     </a>
                     <span>
