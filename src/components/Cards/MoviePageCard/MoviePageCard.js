@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchSingleMovie, fetchSingleMovieCredits, getSingleMovie, getSingleMovieCredits } from '../../../Redux/singleMovieSlice';
 import styles from './MoviePageCard.module.css';
 
@@ -24,7 +25,10 @@ export default function MoviePageCard({movieId}) {
     const movieGenre = movieData.genres?.map(genre => `${genre.name}`).join(" , ") ;
     const movieCompanies = movieData.production_companies?.map(companies => `${companies.name}`).join(" , ") ;
     const movieCountries = movieData.production_countries?.map(countries => `${countries.name}`).join(" , ") ;
-    // const director = movieCredits.crew && movieCredits.crew.filter(c => c.department == "Directing");
+    const director = movieCredits.crew?.filter(c => c.job === "Director");
+    const castName = movieCredits.cast;
+
+    console.log(director);
 
     return (
         <div className={styles.movie_page_card_wrapper}>
@@ -35,7 +39,7 @@ export default function MoviePageCard({movieId}) {
                 <div className={styles.movie_page_card_left_content}>
                     <span>1080p</span>
                     <span>24p</span>
-                    <a href={movieData.homepage}>
+                    <a href={movieData.homepage} target='_blank'>
                         <i className="fab fa-imdb"></i>
                     </a>
                     <span>
@@ -48,7 +52,7 @@ export default function MoviePageCard({movieId}) {
                 <div className={styles.movie_page_card_right_info}>
                     <div>
                         <p><i className="far fa-clock"></i>Duration: <span>{movieData.runtime}m</span></p>
-                        {/* <p><i className="fas fa-video"></i>Director: <span>{movieCredits.crew && director}</span></p> */}
+                        <p><i className="fas fa-video"></i>Director: <span>{movieCredits.crew && director[0]?.name}</span></p>
                         <p><i className="fas fa-calendar-day"></i>Release Date: <span>{movieData.release_date}</span></p>
                         <p><i className="fas fa-language"></i>Language: <span>{movieData && movieLang}</span></p>
                     </div>
@@ -63,13 +67,15 @@ export default function MoviePageCard({movieId}) {
                 <div className={styles.movie_page_card_right_cast}>
                     <div>
                         <p>Director</p>
-                        <p>Christopher Nolan</p>
+                        <Link>{movieCredits.crew && director[0]?.name}</Link>
                     </div>
                     <div>
                         <p>Cast</p>
-                        <p>Christian Bale, Michael Cain, Gary Oldman, Anne Hathway, Tom Hardy, Marion
-                            Cotillard
-                        </p>
+                        <div>
+                            {castName?.slice(0,7).map(n => 
+                                <Link to={`/person/${n.id}`}>{`${n.name}`} , </Link>
+                            )}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.movie_page_card_right_btns}>

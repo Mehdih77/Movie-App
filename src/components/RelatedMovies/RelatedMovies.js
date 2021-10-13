@@ -19,7 +19,8 @@ export default function RelatedMovies({movieId}) {
     const showRelatedMovies = movieSimilar.slice(0,12).map(movie => (
         <div className='px-1'>
             <MovieCard 
-                responsive={false} 
+                responsive={false}
+                id={movie.id} 
                 name={movie.title} 
                 img={movie.poster_path} 
                 year={movie.release_date.split("-").join().slice(0,4)} 

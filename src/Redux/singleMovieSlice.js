@@ -19,7 +19,6 @@ export const fetchSingleMovieSimilar = createAsyncThunk("singleMovie/fetchSingle
     return await response.data.results;
 })
 
-
 const initialState = {
     movie: [],
     credits: [],
@@ -44,6 +43,7 @@ const singleMovieSlice = createSlice({
 
 export default singleMovieSlice.reducer;
 
+// selectors
 export const getSingleMovie = (state) => state.singleMovie.movie;
 export const getSingleMovieCredits = (state) => state.singleMovie.credits;
 export const getSingleMovieSimilar = (state) => state.singleMovie.similar;
