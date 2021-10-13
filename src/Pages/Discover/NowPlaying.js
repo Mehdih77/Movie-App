@@ -1,31 +1,35 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../components/Cards/Card/Card';
-import { fetchDiscoverMovies, getMoviesList } from '../../Redux/discoverSlice';
+import Pagination from '../../components/Pagination/Pagination';
+import { fetchDiscoverMovies, getMoviesList, getTotalResults } from '../../Redux/discoverSlice';
 import styles from './Discover.module.css';
 
 export default function NowPlaying() {
 
+    const [currentPage, setCurrentPage] = useState(1)
     const moviesList = useSelector(getMoviesList);
+    const totalResults = useSelector(getTotalResults);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchDiscoverMovies({
             path: "now_playing",
-            pageNumber: 2
+            pageNumber: currentPage
         }));
-    }, [])
+    }, [currentPage,dispatch])
 
+    // change the page number
+    const changePage = useCallback((page) => {setCurrentPage(page)}, [setCurrentPage]);
 
     const showMoviesList = moviesList.map(movie => (
         <div className="col-6 col-md-4 col-xl-2">
             <Card img={movie.poster_path}
                   name={movie.title} 
-                  star={movie.vote_average} 
+                  star={movie.vote_average}
                   year={movie.release_date.split("-").join().slice(0,4)} />
         </div>
     ))
-    
 
     return (
         <section className={`${styles.discover_page} container mt-4`} style={{minHeight:"472px"}}>
@@ -33,6 +37,7 @@ export default function NowPlaying() {
                 <h4 className={styles.discover_title}>Now Playing Movies</h4>
                 {showMoviesList}
             </div>
+            <Pagination currentPage={currentPage} changePage={changePage} totalResults={totalResults} />
         </section>
     )
 }

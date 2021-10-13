@@ -1,0 +1,26 @@
+.page_numbers {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.page_numbers li {
+  padding: 0 10px;
+}
+.page_numbers li:hover {
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+}
+.page_numbers button {
+  color: #fff;
+  background-color: red;
+  border: none;
+  padding: 3px 6px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.active_page_nubmer{
+    background-color: rgb(161, 5, 5);
+    border-radius: 50%;
+}
