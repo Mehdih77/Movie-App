@@ -71,7 +71,7 @@ export default function MoviePageCard({movieId}) {
                         <p>Cast</p>
                         <div>
                             {castName?.slice(0,7).map(n => 
-                                <Link to={`/person/${n.id}`}>{`${n.name}`} , </Link>
+                                <Link id={n.id} to={`/person/${n.id}`}>{`${n.name}`} , </Link>
                             )}
                         </div>
                     </div>

@@ -1,11 +1,5 @@
 /* Prallax */
 .parallax {
-  background-image: linear-gradient(
-      to right,
-      rgb(12, 21, 26),
-      rgba(0, 0, 0, 0.69)
-    ),
-    url(../../img/peaky-bg.jpg);
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;

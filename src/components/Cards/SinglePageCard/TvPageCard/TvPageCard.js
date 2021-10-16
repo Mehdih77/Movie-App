@@ -54,7 +54,7 @@ export default function TvPageCard({tvId}) {
                 <div className={styles.movie_page_card_right_info}>
                     <div>
                         <p><i className="far fa-clock"></i>Episode Duration: <span>{tvData.episode_run_time?.join().slice(0,2)}m</span></p>
-                        <p><i className="fas fa-video"></i>Director: <span>{(tvCredits.crew && director[0]?.name) || director2}</span></p>
+                        <p><i className="fas fa-video"></i>Director: <span>{(tvCredits.crew && director[0]?.name) || (director2)}</span></p>
                         <p><i className="fas fa-film"></i>Genres: <span>{movieGenre}</span></p>
                         <p><i className="fas fa-calendar-day"></i>Release Date: <span>{tvData.first_air_date}</span></p>
                         <p><i className="fas fa-info"></i>Status: <span>{tvData.status}</span></p>
@@ -73,7 +73,7 @@ export default function TvPageCard({tvId}) {
                 <div className={styles.movie_page_card_right_cast}>
                     <div>
                         <p>Director</p>
-                        <Link>{tvCredits.crew && director[0]?.name || director2}</Link>
+                        <Link>{(tvCredits.crew && director[0]?.name) || (director2)}</Link>
                     </div>
                     <div>
                         <p>Cast</p>

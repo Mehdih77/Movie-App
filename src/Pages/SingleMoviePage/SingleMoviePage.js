@@ -37,7 +37,7 @@ export default function SingleMoviePage() {
                     <div className="row my-5">
                         <MoviePageCard movieId={id} />
                     </div>
-                    <RelatedMovies type={'movie'} movieId={id} />
+                    <RelatedMovies type={'movie'} Id={id} />
                 </section>
             </>}
         </>
