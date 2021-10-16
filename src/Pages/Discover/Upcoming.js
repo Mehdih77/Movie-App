@@ -1,9 +1,9 @@
 import { useState,useEffect,useCallback } from 'react';
-import styles from './Discover.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDiscoverMovies, getMoviesList, getTotalResults } from '../../Redux/discoverSlice';
 import Card from '../../components/Cards/Card/Card';
 import Pagination from '../../components/Pagination/Pagination';
+import TopTitleMovies from '../../components/TopTitleMovies/TopTitleMovies';
 
 export default function Upcoming() {
 
@@ -34,9 +34,9 @@ export default function Upcoming() {
     ))
 
     return (
-        <section className={`${styles.discover_page} container mt-4`} style={{minHeight:"472px"}}>
+        <section className='container mt-4' style={{minHeight:"472px"}}>
             <div className="row">
-                <h4 className={styles.discover_title}>Upcoming Movies</h4>
+                <TopTitleMovies name={"Upcoming"} />
                 {showMoviesList}
             </div>
             <Pagination currentPage={currentPage} changePage={changePage} totalResults={totalResults} />

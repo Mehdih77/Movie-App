@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import discoverSlice from "./discoverSlice";
+import genreSlice from "./genreSlice";
 import personSlice from "./personSlice";
 import singleMovieSlice from "./singleMovieSlice";
 import singleTvSlice from "./singleTvSlice";
@@ -13,7 +14,8 @@ const store = configureStore({
         person: personSlice,
         trending: trendingSlice,
         singleTv: singleTvSlice,
-        tvs: tvSlice
+        tvs: tvSlice,
+        genre: genreSlice
     }
 })
 

@@ -1,7 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchGenresType, getGenresType } from '../../../Redux/genreSlice';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+
+    const genresType = useSelector(getGenresType);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchGenresType());
+    }, [dispatch])
+
+    const showGenresList = genresType.map(genre => (
+        <Link to={`/genre/${genre.name}/${genre.id}`} key={genre.id} className="dropdown-item" href="!#">{genre.name}</Link>
+    ))
+
     return (
         <ul className={`${styles.custom_navbar} navbar-nav me-auto mb-2 mb-lg-0`}>
             <li className="nav-item">
@@ -39,13 +54,7 @@ export default function Navbar() {
                 </a>
                 <ul className={`${styles.custom_dropdown} ${styles.custom_dropdown_genres} dropdown-menu`} aria-labelledby="navbarDropdown">
                     <div>
-                        <Link className="dropdown-item" href="!#">NOW PLAYING</Link>
-                        <Link className="dropdown-item" href="!#">TOP RATED</Link>
-                        <Link className="dropdown-item" href="!#">action</Link>
-                        <Link className="dropdown-item" href="!#">drama</Link>   
-                        <Link className="dropdown-item" href="!#">horror</Link>   
-                        <Link className="dropdown-item" href="!#">comedy</Link>   
-                        <Link className="dropdown-item" href="!#">comedy</Link>   
+                        {showGenresList}   
                     </div>  
                 </ul>
             </li>
