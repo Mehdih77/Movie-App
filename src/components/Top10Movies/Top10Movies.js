@@ -22,7 +22,8 @@ export default function Top10Movies() {
             id={movie.id}
             img={movie.backdrop_path} 
             name={movie.title} 
-            detail={movie.overview} />
+            detail={movie.overview}
+            allInformation={movie} />
     ))
 
     return (

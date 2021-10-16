@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleTv, fetchSingleTvCredits, getSingleTv, getSingleTvCredits } from '../../../../Redux/singleTvSlice';
+import { addToWatchList } from '../../../../Redux/watchListSlice';
 import styles from '../SinglePageCard.module.css';
 
 export default function TvPageCard({tvId}) {
@@ -17,7 +18,11 @@ export default function TvPageCard({tvId}) {
         dispatch(fetchSingleTvCredits({
             id: tvId
         }));
-    }, [tvId,dispatch])
+    }, [tvId,dispatch]);
+
+    const handleAddToWatchList = () => {
+        dispatch(addToWatchList(tvData));
+    };
     
     // tv data
     const imageUrl = `https://image.tmdb.org/t/p/w780/${tvData?.poster_path}`;
@@ -85,7 +90,7 @@ export default function TvPageCard({tvId}) {
                 </div>
                 <div className={styles.movie_page_card_right_btns}>
                     <button><i className="fas fa-play"></i>Play</button>
-                    <button><i className="fas fa-plus"></i>My List</button>
+                    <button onClick={handleAddToWatchList}><i className="fas fa-plus"></i>My List</button>
                     <button><i className="fas fa-film"></i>Trailer</button>
                     <button><i className="fas fa-share-alt"></i>Share</button>
                 </div>

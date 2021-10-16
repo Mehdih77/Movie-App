@@ -1,46 +1,60 @@
-import { useState,useEffect,useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDiscoverMovies, getMoviesList, getTotalResults } from '../../Redux/discoverSlice';
-import Card from '../../components/Cards/Card/Card';
-import Pagination from '../../components/Pagination/Pagination';
-import TopTitleMovies from '../../components/TopTitleMovies/TopTitleMovies';
+import { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchDiscoverMovies,
+  getMoviesList,
+  getTotalResults,
+} from "../../Redux/discoverSlice";
+import Card from "../../components/Cards/Card/Card";
+import Pagination from "../../components/Pagination/Pagination";
+import TopTitleMovies from "../../components/TopTitleMovies/TopTitleMovies";
 
 export default function Popular() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesList = useSelector(getMoviesList);
+  const totalResults = useSelector(getTotalResults);
+  const dispatch = useDispatch();
 
-    const [currentPage, setCurrentPage] = useState(1)
-    const moviesList = useSelector(getMoviesList);
-    const totalResults = useSelector(getTotalResults);
-    const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      fetchDiscoverMovies({
+        path: "popular",
+        pageNumber: currentPage,
+      })
+    );
+  }, [currentPage, dispatch]);
 
-    useEffect(() => {
-        dispatch(fetchDiscoverMovies({
-            path: "popular",
-            pageNumber: currentPage
-        }));
-    }, [currentPage,dispatch])
+  // change the page number
+  const changePage = useCallback(
+    (page) => {
+      setCurrentPage(page);
+    },
+    [setCurrentPage]
+  );
 
-    // change the page number
-    const changePage = useCallback((page) => {setCurrentPage(page)}, [setCurrentPage]);
+  const showMoviesList = moviesList.map((movie) => (
+    <div className="col-6 col-md-4 col-xl-2">
+      <Card
+        id={movie.id}
+        img={movie.poster_path}
+        name={movie.title}
+        star={movie.vote_average}
+        year={movie.release_date.split("-").join().slice(0, 4)}
+      />
+    </div>
+  ));
 
-    const showMoviesList = moviesList.map(movie => (
-        <div className="col-6 col-md-4 col-xl-2">
-            <Card 
-                id={movie.id}
-                img={movie.poster_path}
-                name={movie.title} 
-                star={movie.vote_average}
-                year={movie.release_date.split("-").join().slice(0,4)} />
-        </div>
-    ))
-
-
-    return (
-        <section className='container mt-4' style={{minHeight:"472px"}}>
-            <div className="row">
-                <TopTitleMovies name={"Popular"} />
-                {showMoviesList}
-            </div>
-            <Pagination currentPage={currentPage} changePage={changePage} totalResults={totalResults} />
-        </section>
-    )
+  return (
+    <section className="container mt-4" style={{ minHeight: "472px" }}>
+      <div className="row">
+        <TopTitleMovies name={"Popular"} />
+        {showMoviesList}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        changePage={changePage}
+        totalResults={totalResults}
+      />
+    </section>
+  );
 }

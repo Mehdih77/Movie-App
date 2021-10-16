@@ -26,7 +26,8 @@ export default function PopularMovies() {
                 img={movie.poster_path} 
                 year={movie.release_date.split("-").join().slice(0,4)} 
                 age={'+18'} 
-                genres={"Action"}  />
+                genres={"Action"}
+                allInformation={movie}  />
         </div>
     ))
 

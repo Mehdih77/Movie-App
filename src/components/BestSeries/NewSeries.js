@@ -23,6 +23,7 @@ export default function NewSeries() {
       name={tv.name}
       img={tv.poster_path}
       year={tv.first_air_date.split("-").join().slice(0, 4)}
+      allInformation={tv}
     />
   ));
 

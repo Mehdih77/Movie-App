@@ -25,7 +25,8 @@ export default function Shows() {
             year={movie.release_date?.split("-").join().slice(0,4)}
             firstAirDate={movie.first_air_date?.split("-").join().slice(0,4)}
             age={'+16'} 
-            genres={"Drama"} />
+            genres={"Drama"}
+            allInformation={movie} />
     ))
 
 

@@ -26,6 +26,7 @@ export default function PopularSeries() {
           img={tv.poster_path}
           year={tv.first_air_date.split("-").join().slice(0, 4)}
           genres={"5 Season"}
+          allInformation={tv}
         />
       ));
   

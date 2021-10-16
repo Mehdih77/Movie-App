@@ -1,18 +1,35 @@
-import WatchListCard from '../Cards/WatchListCard/WatchListCard';
-import styles from './DashboardComponents.module.css';
+import { useSelector } from "react-redux";
+import { selectAllWatchList } from "../../Redux/watchListSlice";
+import WatchListCard from "../Cards/WatchListCard/WatchListCard";
+import styles from "./DashboardComponents.module.css";
 
 export default function WatchList() {
-    return (
-        <div className='row' style={{minHeight:"407px"}}>
-            <WatchListCard img={'/images/movie4.jpg'} name={"vikings"} year={"2013"} time={"2h 36m"} detail={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptate laboriosam voluptas, ullam quia nostrum aliquid aliquam veniam sequi magnam dolore asperiores placeat quis voluptates fugiat fugit adipisci. Optio, ex.'} />
-            <WatchListCard img={'/images/movie4.jpg'} name={"vikings"} year={"2013"} time={"2h 36m"} detail={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptate laboriosam voluptas, ullam quia nostrum aliquid aliquam veniam sequi magnam dolore asperiores placeat quis voluptates fugiat fugit adipisci. Optio, ex.'} />
-            <WatchListCard img={'/images/movie4.jpg'} name={"vikings"} year={"2013"} time={"2h 36m"} detail={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptate laboriosam voluptas, ullam quia nostrum aliquid aliquam veniam sequi magnam dolore asperiores placeat quis voluptates fugiat fugit adipisci. Optio, ex.'} />
-            <WatchListCard img={'/images/movie4.jpg'} name={"vikings"} year={"2013"} time={"2h 36m"} detail={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptate laboriosam voluptas, ullam quia nostrum aliquid aliquam veniam sequi magnam dolore asperiores placeat quis voluptates fugiat fugit adipisci. Optio, ex.'} />
-            <div className={styles.empty_watch_list}>
-                <i className="fas fa-compact-disc"></i>
-                <p>Your Watch List Is Empty...</p>          
-            </div>
-        </div>
-    )
-}
+  const watchListItems = useSelector(selectAllWatchList);
 
+  const showWatchList = watchListItems.map((item) => (
+    <WatchListCard
+      id={item.id}
+      key={item.id}
+      img={item.poster_path}
+      name={item.name || item.title}
+      year={
+        item.release_date?.split("-").join().slice(0, 4) ||
+        item.first_air_date?.split("-").join().slice(0, 4)
+      }
+      detail={item.overview}
+    />
+  ));
+
+  return (
+    <div className="row" style={{ minHeight: "407px" }}>
+      {showWatchList.length > 0 ? (
+        showWatchList
+      ) : (
+        <div className={styles.empty_watch_list}>
+          <i className="fas fa-compact-disc"></i>
+          <p>Your Watch List Is Empty...</p>
+        </div>
+      )}
+    </div>
+  );
+}

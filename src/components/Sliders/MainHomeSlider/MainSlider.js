@@ -24,7 +24,8 @@ export default function MainSlider() {
       year={movie.release_date.split("-").join().slice(0,4)}
       age={"+18"} 
       time={"2h 36m"} 
-      detail={movie.overview}  />
+      detail={movie.overview}
+      allInformation={movie}  />
   ))
 
 

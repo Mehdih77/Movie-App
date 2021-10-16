@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleMovie, fetchSingleMovieCredits, getSingleMovie, getSingleMovieCredits } from '../../../../Redux/singleMovieSlice';
+import { addToWatchList } from '../../../../Redux/watchListSlice';
 import styles from '../SinglePageCard.module.css';
 
 export default function MoviePageCard({movieId}) {
@@ -18,6 +19,11 @@ export default function MoviePageCard({movieId}) {
             id: movieId
         }));
     }, [movieId,dispatch])
+
+    const handleAddToWatchList = () => {
+        dispatch(addToWatchList(movieData));
+    };
+
     
     // movie data
     const imageUrl = `https://image.tmdb.org/t/p/w780/${movieData.poster_path}`;
@@ -78,7 +84,7 @@ export default function MoviePageCard({movieId}) {
                 </div>
                 <div className={styles.movie_page_card_right_btns}>
                     <button><i className="fas fa-play"></i>Play</button>
-                    <button><i className="fas fa-plus"></i>My List</button>
+                    <button onClick={handleAddToWatchList}><i className="fas fa-plus"></i>My List</button>
                     <button><i className="fas fa-film"></i>Trailer</button>
                     <button><i className="fas fa-share-alt"></i>Share</button>
                 </div>

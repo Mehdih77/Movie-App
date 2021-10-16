@@ -1,10 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { removeFromWatchList } from '../../../Redux/watchListSlice';
 import styles from './WatchListCard.module.css';
 
-export default function WatchListCard({img,name,year,time,detail}) {
+export default function WatchListCard({id,img,name,year,time,detail}) {
+
+    const imageUrl = `https://image.tmdb.org/t/p/w342/${img}`;
+    const dispatch = useDispatch();
+
+    const handleRemoveFromWatchList = () => {
+        dispatch(removeFromWatchList(id));
+    }
+
     return (
         <div className={`${styles.watch_list_card} col-12 col-md-6 col-xl-4`}>
             <div className={`${styles.watch_list_card_details}`}>
-                <img src={img} alt="watch list"/>
+                <img src={imageUrl} alt="watch list"/>
                 <p>{name}</p>
                 <div>
                     <span>{year}</span>
@@ -16,14 +26,14 @@ export default function WatchListCard({img,name,year,time,detail}) {
             <div className={`${styles.watch_list_card_btns}`}>
                 <p>Where to Watch</p>
                 <div>
-                    <button><i class="fab fa-apple"></i>iTunes</button>
+                    <button><i className="fab fa-apple"></i>iTunes</button>
                     <button> <img src="/images/hulu.png" alt="hulu" /> Hulu</button>
-                    <button><i class="fab fa-amazon"></i>Amazon</button>
+                    <button><i className="fab fa-amazon"></i>Amazon</button>
                     <button><img src="/images/netflix.png" alt="netflix" />Netflix</button>
                 </div>
             </div>
             <div className={`${styles.watch_list_card_actions}`}>
-                <button>
+                <button onClick={handleRemoveFromWatchList}>
                     <i className="far fa-trash-alt"></i>
                     <span>Remove</span>
                 </button>

@@ -1,9 +1,17 @@
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToWatchList } from '../../../Redux/watchListSlice';
 import styles from './OverlayCard.module.css';
 
-export default function OverlayCard({id,img,name,detail}) {
+export default function OverlayCard({id,img,name,detail,allInformation}) {
 
     const imageUrl = `https://image.tmdb.org/t/p/original/${img}`;
+
+    const dispatch = useDispatch();
+
+    const handleAddToWatchList = () => {
+        dispatch(addToWatchList(allInformation));
+    };
 
     return (
         <div className={`${styles.overlay_card_main} px-1`}>
@@ -20,7 +28,7 @@ export default function OverlayCard({id,img,name,detail}) {
                                     <i className="fas fa-info"></i>Details
                             </button>
                         </Link>
-                        <button>
+                        <button onClick={handleAddToWatchList}>
                                 <i className="fas fa-plus"></i>My List
                         </button>
                     </div>
