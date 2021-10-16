@@ -3,7 +3,7 @@
   justify-content: flex-end;
 }
 .search_bar input {
-  height: 35px;
+  height: 37px;
   background-color: #fff;
   margin-top: 3px;
 }
@@ -21,7 +21,7 @@
   background-color: transparent;
   border: none;
   position: absolute;
-  top: 8px;
+  top: 9px;
   left: 6px;
   font-size: 17px;
 }
@@ -40,10 +40,25 @@
 }
 .user_btn i {
   color: #fff;
-  margin-left: -3px;
 }
 @media screen and (min-width: 992px) {
   .search_bar {
     width: 450px;
   }
+}
+
+/* access_key_btn */
+.access_key {
+  color: #000;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  background-color: #f7f7f7;
+}
+.search_bar input:focus ~ .access_key {
+  display: none;
 }

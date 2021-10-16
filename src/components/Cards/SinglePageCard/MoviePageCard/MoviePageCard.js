@@ -65,13 +65,13 @@ export default function MoviePageCard({movieId}) {
                 <div className={styles.movie_page_card_right_cast}>
                     <div>
                         <p>Director</p>
-                        <Link>{movieCredits.crew && director[0]?.name}</Link>
+                        <Link to={`/person/${movieCredits.crew && director[0]?.id}`}>{movieCredits.crew && director[0]?.name}</Link>
                     </div>
                     <div>
                         <p>Cast</p>
                         <div>
                             {castName?.slice(0,7).map(n => 
-                                <Link id={n.id} to={`/person/${n.id}`}>{`${n.name}`} , </Link>
+                                <Link id={n.id} to={`/person/${n.id}`}> {`${n.name}`} , </Link>
                             )}
                         </div>
                     </div>

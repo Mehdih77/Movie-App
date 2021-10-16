@@ -9,8 +9,6 @@ export default function TvPageCard({tvId}) {
     const tvData = useSelector(getSingleTv);
     const tvCredits = useSelector(getSingleTvCredits);
     const dispatch = useDispatch();
-
-    console.log(tvData);
     
     useEffect(() => {
         dispatch(fetchSingleTv({
@@ -30,6 +28,7 @@ export default function TvPageCard({tvId}) {
     const movieCountries = tvData.production_countries?.map(countries => `${countries.name}`).join(" , ") ;
     const director = tvCredits.crew?.filter(c => c.job === "Director");
     const director2 = tvData.created_by?.map(d => d.name).join(" , ");
+    const director2id = tvData.created_by?.map(d => d.id);
     const castName = tvCredits.cast;
 
     return (
@@ -73,13 +72,13 @@ export default function TvPageCard({tvId}) {
                 <div className={styles.movie_page_card_right_cast}>
                     <div>
                         <p>Director</p>
-                        <Link>{(tvCredits.crew && director[0]?.name) || (director2)}</Link>
+                        <Link to={`/person/${director2id}`}> {(tvCredits.crew && director[0]?.name) || (director2)}</Link>
                     </div>
                     <div>
                         <p>Cast</p>
                         <div>
                             {castName?.slice(0,7).map(n => 
-                                <Link to={`/person/${n.id}`}>{`${n.name}`} , </Link>
+                                <Link to={`/person/${n.id}`}> {`${n.name}`} , </Link>
                             )}
                         </div>
                     </div>

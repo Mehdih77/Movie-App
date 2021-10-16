@@ -15,10 +15,12 @@ export default function SearchBar() {
             <div>
                 <input
                 className="form-control me-2"
+                accessKey="q"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"/>
                 <button onClick={handleSearchByKeyword}><i className="fas fa-search"></i></button>
+                <kbd className={styles.access_key}>Alt + q</kbd>
             </div>
             <Link to='/dashboard' href='/dashboard'>
                 <button className={`${styles.user_btn} btn`} type="submit">
