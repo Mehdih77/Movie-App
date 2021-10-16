@@ -29,8 +29,8 @@ input:focus {
 
 /* Slick Custom Style */
 .slick-list {
-  margin-right: -15px !important;
-  margin-left: -15px !important;
+  margin-right: -12px !important;
+  margin-left: -12px !important;
 }
 .slick-prev {
   z-index: 999 !important;

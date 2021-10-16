@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchSingleMovie, fetchSingleMovieCredits, getSingleMovie, getSingleMovieCredits } from '../../../Redux/singleMovieSlice';
-import styles from './MoviePageCard.module.css';
+import { fetchSingleMovie, fetchSingleMovieCredits, getSingleMovie, getSingleMovieCredits } from '../../../../Redux/singleMovieSlice';
+import styles from '../SinglePageCard.module.css';
 
 export default function MoviePageCard({movieId}) {
 

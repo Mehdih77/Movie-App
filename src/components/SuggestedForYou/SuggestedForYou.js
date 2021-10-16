@@ -21,6 +21,7 @@ export default function SuggestedForYou() {
             <MovieCard 
                 responsive={false}
                 id={movie.id} 
+                key={movie.id}
                 name={movie.title} 
                 img={movie.poster_path} 
                 year={movie.release_date.split("-").join().slice(0,4)} 

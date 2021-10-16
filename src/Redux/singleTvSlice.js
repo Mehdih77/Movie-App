@@ -30,7 +30,7 @@ const singleTvSlice = createSlice({
     initialState,
     extraReducers:{
         [fetchSingleTv.fulfilled]: (state,action) => {
-            state.movie = action.payload;
+            state.tv = action.payload;
         },
         [fetchSingleTvCredits.fulfilled]: (state,action) => {
             state.credits = action.payload;
@@ -44,6 +44,6 @@ const singleTvSlice = createSlice({
 export default singleTvSlice.reducer;
 
 // selectors
-export const getSingleTv = (state) => state.singleTv.movie;
+export const getSingleTv = (state) => state.singleTv.tv;
 export const getSingleTvCredits = (state) => state.singleTv.credits;
 export const getSingleTvSimilar = (state) => state.singleTv.similar;

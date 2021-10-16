@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const fetchTvs = createAsyncThunk("tv/fetchTvs", async(params) => {
     const response = await axios
-    .get(`http://api.themoviedb.org/3/tv/${params.path}?api_key=81e6c83ddfd9e06a0fb3cf0012fcf182&language=en-US&page=${params.pageNumber}`)
+    .get(`https://api.themoviedb.org/3/tv/${params.path}?api_key=81e6c83ddfd9e06a0fb3cf0012fcf182&language=en-US&page=1`)
     return await response.data.results;
 })
 
@@ -26,4 +26,4 @@ const tvSlice = createSlice({
 export default tvSlice.reducer;
 
 // selectors
-export const getTvs = (state) => state.tvs.tv;
+export const getTvs = (state) => state.tvs.tvs;

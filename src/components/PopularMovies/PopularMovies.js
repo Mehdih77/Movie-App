@@ -20,7 +20,8 @@ export default function PopularMovies() {
         <div className='px-1'>
             <MovieCard 
                 responsive={false}
-                id={movie.id} 
+                id={movie.id}
+                key={movie.id}
                 name={movie.title} 
                 img={movie.poster_path} 
                 year={movie.release_date.split("-").join().slice(0,4)} 

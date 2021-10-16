@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleMovie, getSingleMovie } from '../../Redux/singleMovieSlice';
 import styles from './SingleMoviePage.module.css';
-import MoviePageCard from '../../components/Cards/MoviePageCard/MoviePageCard';
+import MoviePageCard from '../../components/Cards/SinglePageCard/MoviePageCard/MoviePageCard';
 import RelatedMovies from '../../components/RelatedMovies/RelatedMovies';
 
 export default function SingleMoviePage() {
@@ -37,7 +37,7 @@ export default function SingleMoviePage() {
                     <div className="row my-5">
                         <MoviePageCard movieId={id} />
                     </div>
-                    <RelatedMovies movieId={id} />
+                    <RelatedMovies type={'movie'} movieId={id} />
                 </section>
             </>}
         </>

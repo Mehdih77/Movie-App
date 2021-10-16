@@ -13,7 +13,7 @@ const store = configureStore({
         person: personSlice,
         trending: trendingSlice,
         singleTv: singleTvSlice,
-        tv: tvSlice
+        tvs: tvSlice
     }
 })
 
