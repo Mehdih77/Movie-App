@@ -15,6 +15,7 @@
 }
 .card_wrapper img {
   width: 170px;
+  height: 255px;
 }
 .card_content p {
   font-weight: 500;

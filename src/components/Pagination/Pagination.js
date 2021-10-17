@@ -20,12 +20,13 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
 
     const renderPageNumbers = pages.map((number) => {
       if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+        console.log(number,currentPage);
         return (
           <li
             key={number}
             id={number}
             onClick={handleClick}
-            className={currentPage === number ? `${styles.active_page_nubmer}` : null}
+            className={Number(currentPage) === number ? `${styles.active_page_nubmer}` : null}
           >
             {number}
           </li>

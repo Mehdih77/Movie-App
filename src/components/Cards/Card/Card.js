@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
+import noImage from '../../../img/ava.jpg';
 
 export default function Card({id,img,name,year,star}) {
 
-    const imageUrl = `https://image.tmdb.org/t/p/w342/${img}`
+    const noPoster = img === "" || img === null || img === undefined;
+
+    let imageUrl = "";
+    if (noPoster) {
+        imageUrl = noImage
+    } else {
+        imageUrl = `https://image.tmdb.org/t/p/w342/${img}`;
+    }
 
     return (
         <div className={styles.card_wrapper}>

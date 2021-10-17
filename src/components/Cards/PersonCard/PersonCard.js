@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerson, getPerson } from "../../../Redux/personSlice";
 import styles from "./PersonCard.module.css";
+import noImage from '../../../img/ava.jpg';
 
 export default function PersonCard({ personId }) {
   const dispatch = useDispatch();
@@ -13,10 +14,20 @@ export default function PersonCard({ personId }) {
         id: personId,
       })
     );
-  }, [personId,dispatch]);
+  }, [personId, dispatch]);
 
-  const imageUrl = `https://image.tmdb.org/t/p/w342/${personInfo.profile_path}`;
+  const noPoster =
+    personInfo.profile_path === "" ||
+    personInfo.profile_path === null ||
+    personInfo.profile_path === undefined;
 
+  let imageUrl = "";
+  if (noPoster) {
+    imageUrl = noImage;
+  } else {
+    imageUrl = `https://image.tmdb.org/t/p/w342/${personInfo.profile_path}`;
+  }
+  
   return (
     <div className={styles.person_card_wrapper}>
       <div className={styles.person_card_left}>
@@ -25,7 +36,8 @@ export default function PersonCard({ personId }) {
         </div>
         <div className={styles.person_card_left_content}>
           <span>
-            <i className="fas fa-star-half-alt"></i>Popularity: {personInfo.popularity}
+            <i className="fas fa-star-half-alt"></i>Popularity:{" "}
+            {personInfo.popularity}
           </span>
           <a
             target="_blank"

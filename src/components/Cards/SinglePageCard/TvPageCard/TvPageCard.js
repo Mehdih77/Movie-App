@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchSingleTv, fetchSingleTvCredits, getSingleTv, getSingleTvCredits } from '../../../../Redux/singleTvSlice';
 import { addToWatchList } from '../../../../Redux/watchListSlice';
 import styles from '../SinglePageCard.module.css';
+import noImage from '../../../../img/ava.jpg';
 
 export default function TvPageCard({tvId}) {
 
@@ -25,7 +26,16 @@ export default function TvPageCard({tvId}) {
     };
     
     // tv data
-    const imageUrl = `https://image.tmdb.org/t/p/w780/${tvData?.poster_path}`;
+    const noPoster =
+    tvData?.poster_path === "" ||
+    tvData?.poster_path === null ||
+    tvData?.poster_path === undefined;
+    let imageUrl = "";
+    if (noPoster) {
+      imageUrl = noImage;
+    } else {
+      imageUrl = `https://image.tmdb.org/t/p/w780/${tvData?.poster_path}`;
+    }
     const movieLang = tvData.spoken_languages?.map(lang => `${lang.name}`).join(" , ") ;
     const movieGenre = tvData.genres?.map(genre => `${genre.name}`).join(" , ") ;
     const tvNetworks = tvData.networks?.map(network => `${network.name}`).join(" , ") ;
