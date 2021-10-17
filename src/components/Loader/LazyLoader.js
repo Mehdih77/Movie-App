@@ -1,12 +1,12 @@
 import spinner from "../../img/spinner.svg";
 
-export default function Loader() {
+export default function LazyLoader() {
   return (
     <div
       style={{
-        margin:"0 50px",
-        width: "20px",
-        height: "20px",
+        margin:"100px auto",
+        width: "30px",
+        height: "30px",
       }}>
       <img src={spinner} />
     </div>

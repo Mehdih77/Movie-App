@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useState,useEffect,useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerson, getPerson } from "../../../Redux/personSlice";
 import styles from "./PersonCard.module.css";
 import noImage from '../../../img/ava.jpg';
+import Loader from "../../Loader/Loader";
 
 export default function PersonCard({ personId }) {
   const dispatch = useDispatch();
@@ -28,11 +29,36 @@ export default function PersonCard({ personId }) {
     imageUrl = `https://image.tmdb.org/t/p/w342/${personInfo.profile_path}`;
   }
   
+  // show spinner before loading poster/image
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    return () => setLoading(false);
+  }, []);
+
+  const onLoading = useCallback(() => {
+    setLoading(true);
+  }, [setLoading]);
+
   return (
     <div className={styles.person_card_wrapper}>
       <div className={styles.person_card_left}>
         <div>
-          <img className="img-fluid" src={imageUrl} alt="person-page" />
+
+        {noPoster ? (
+          <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
+        ) : (
+          <>
+            {!loading ? <Loader /> : null}
+            <img
+              onLoad={onLoading}
+              className="img-fluid"
+              src={imageUrl}
+              alt={personInfo.name}
+            />
+          </>
+        )}
+        
         </div>
         <div className={styles.person_card_left_content}>
           <span>

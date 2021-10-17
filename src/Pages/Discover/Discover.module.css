@@ -1,5 +1,6 @@
 .discover_page {
   padding-right: 30px !important;
+  min-height: 450px;
 }
 .discover_title {
   position: relative;

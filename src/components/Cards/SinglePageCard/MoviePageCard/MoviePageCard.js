@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -10,6 +10,7 @@ import {
 import { addToWatchList } from "../../../../Redux/watchListSlice";
 import styles from "../SinglePageCard.module.css";
 import noImage from "../../../../img/ava.jpg";
+import Loader from "../../../Loader/Loader";
 
 export default function MoviePageCard({ movieId }) {
   const movieData = useSelector(getSingleMovie);
@@ -59,11 +60,34 @@ export default function MoviePageCard({ movieId }) {
   const director = movieCredits.crew?.filter((c) => c.job === "Director");
   const castName = movieCredits.cast;
 
+  // show spinner before loading poster/image
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    return () => setLoading(false);
+  }, []);
+
+  const onLoading = useCallback(() => {
+    setLoading(true);
+  }, [setLoading]);
+
   return (
     <div className={styles.movie_page_card_wrapper}>
       <div className={styles.movie_page_card_left}>
         <div>
-          <img src={imageUrl} alt="movie-page" />
+          {noPoster ? (
+            <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
+          ) : (
+            <>
+              {!loading ? <Loader /> : null}
+              <img
+                onLoad={onLoading}
+                className="img-fluid"
+                src={imageUrl}
+                alt={movieData.title}
+              />
+            </>
+          )}
         </div>
         <div className={styles.movie_page_card_left_content}>
           <span>1080p</span>

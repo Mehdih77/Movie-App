@@ -1,8 +1,10 @@
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToWatchList } from "../../../Redux/watchListSlice";
 import styles from "./MovieCard.module.css";
-import noImage from '../../../img/ava.jpg';
+import noImage from "../../../img/ava.jpg";
+import Loader from "../../Loader/Loader";
 
 export default function MovieCard({
   responsive = true,
@@ -17,15 +19,23 @@ export default function MovieCard({
   type,
   allInformation,
 }) {
+  const [loading, setLoading] = useState(false);
 
-  
+  useEffect(() => {
+    return () => setLoading(false);
+  }, []);
+
+  const onLoading = useCallback(() => {
+    setLoading(true);
+  }, [setLoading]);
+
   const noPoster = img === "" || img === null || img === undefined;
 
   let imageUrl = "";
   if (noPoster) {
-      imageUrl = noImage
+    imageUrl = noImage;
   } else {
-      imageUrl = `https://image.tmdb.org/t/p/w342/${img}`;
+    imageUrl = `https://image.tmdb.org/t/p/w342/${img}`;
   }
 
   const dispatch = useDispatch();
@@ -47,7 +57,22 @@ export default function MovieCard({
             <i className="fas fa-plus"></i>
           </button>
         </div>
-        <img className="img-fluid" src={imageUrl} alt={title} />
+
+        {noPoster ? (
+          <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
+        ) : (
+          <>
+            {!loading ? <Loader /> : null}
+            <img
+              onLoad={onLoading}
+              className="img-fluid"
+              src={imageUrl}
+              alt={title}
+            />
+            )
+          </>
+        )}
+
         <div className={styles.card_content}>
           <p>{title || name}</p>
           <div>

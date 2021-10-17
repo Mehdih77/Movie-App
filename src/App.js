@@ -1,33 +1,33 @@
 import React, {Suspense} from 'react';
-import Home from './Pages/Home/Home';
 import Layout from './Layout/Layout';
-// import Dashboard from './Pages/Dashboard/Dashboard';
-import TopRated from './Pages/Discover/TopRated';
-import NowPlaying from './Pages/Discover/NowPlaying';
-import Popular from './Pages/Discover/Popular';
-import Upcoming from './Pages/Discover/Upcoming';
-import MovieBySearch from './Pages/Discover/MovieBySearch';
-import PricingPlans from './Pages/PricingPlans/PricingPlans';
-import SingleMoviePage from './Pages/SingleMoviePage/SingleMoviePage';
-import Person from './Pages/Person/Person';
-import SingleTvPage from './Pages/SingleTvPage/SingleTvPage';
-import MovieByGenrePage from './Pages/MovieByGenrePage/MovieByGenrePage';
-import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
-import Loader from './components/Loader/Loader';
+// import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import LazyLoader from './components/Loader/LazyLoader';
 
+// React Lazy
+const Home = React.lazy(() => import('./Pages/Home/Home'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
+const TopRated = React.lazy(() => import('./Pages/Discover/TopRated'));
+const NowPlaying = React.lazy(() => import('./Pages/Discover/NowPlaying'));
+const Popular = React.lazy(() => import('./Pages/Discover/Popular'));
+const Upcoming = React.lazy(() => import('./Pages/Discover/Upcoming'));
+const MovieBySearch = React.lazy(() => import('./Pages/Discover/MovieBySearch'));
+const PricingPlans = React.lazy(() => import('./Pages/PricingPlans/PricingPlans'));
+const SingleMoviePage = React.lazy(() => import('./Pages/SingleMoviePage/SingleMoviePage'));
+const Person = React.lazy(() => import('./Pages/Person/Person'));
+const SingleTvPage = React.lazy(() => import('./Pages/SingleTvPage/SingleTvPage'));
+const MovieByGenrePage = React.lazy(() => import('./Pages/MovieByGenrePage/MovieByGenrePage'));
 
 function App() {
   return (
     <Router>
       <Switch>
         <Layout>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<LazyLoader />}>
             <Route path='/' exact component={Home} />
             <Route path='/dashboard' exact component={Dashboard} />
             <Route path='/pricing' exact component={PricingPlans} />

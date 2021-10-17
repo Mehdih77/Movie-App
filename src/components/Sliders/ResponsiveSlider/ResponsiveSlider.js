@@ -6,7 +6,7 @@ export default function ResponsiveSlider({children}) {
         className: "mx-4",
         arrows: false,
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 1000,
         slidesToShow: 6,
         slidesToScroll: 6,
