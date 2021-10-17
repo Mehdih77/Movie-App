@@ -8,7 +8,7 @@ export default function LazyLoader() {
         width: "30px",
         height: "30px",
       }}>
-      <img src={spinner} />
+      <img src={spinner} alt='spinner' />
     </div>
   );
 }

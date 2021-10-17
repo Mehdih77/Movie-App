@@ -11,10 +11,13 @@ import { addToWatchList } from "../../../../Redux/watchListSlice";
 import styles from "../SinglePageCard.module.css";
 import noImage from "../../../../img/ava.jpg";
 import Loader from "../../../Loader/Loader";
+import ModalVideo from "react-modal-video";
+import { fetchVideoMovie, getVideo } from "../../../../Redux/videoSlice";
 
 export default function MoviePageCard({ movieId }) {
   const movieData = useSelector(getSingleMovie);
   const movieCredits = useSelector(getSingleMovieCredits);
+  const videoTrailer = useSelector(getVideo);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +28,11 @@ export default function MoviePageCard({ movieId }) {
     );
     dispatch(
       fetchSingleMovieCredits({
+        id: movieId,
+      })
+    );
+    dispatch(
+      fetchVideoMovie({
         id: movieId,
       })
     );
@@ -70,6 +78,22 @@ export default function MoviePageCard({ movieId }) {
   const onLoading = useCallback(() => {
     setLoading(true);
   }, [setLoading]);
+
+  // video Modal
+  const [isOpen, setOpen] = useState(false);
+  let videoId = "";
+  if (videoTrailer[0] === undefined) {
+    videoId = null;
+  } else {
+    videoId = videoTrailer[0].key;
+  }
+  const handleOpenModal = useCallback(
+    (e) => {
+      e.preventDefault();
+      setOpen(true);
+    },
+    [setOpen]
+  );
 
   return (
     <div className={styles.movie_page_card_wrapper}>
@@ -169,9 +193,16 @@ export default function MoviePageCard({ movieId }) {
           <button onClick={handleAddToWatchList}>
             <i className="fas fa-plus"></i>My List
           </button>
-          <button>
+          <button onClick={handleOpenModal}>
             <i className="fas fa-film"></i>Trailer
           </button>
+          <ModalVideo
+            channel="youtube"
+            autoplay
+            isOpen={isOpen}
+            videoId={videoId}
+            onClose={() => setOpen(false)}
+          />
           <button>
             <i className="fas fa-share-alt"></i>Share
           </button>

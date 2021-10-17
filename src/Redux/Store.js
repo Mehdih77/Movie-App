@@ -7,6 +7,7 @@ import singleMovieSlice from "./singleMovieSlice";
 import singleTvSlice from "./singleTvSlice";
 import trendingSlice from "./trendingSlice";
 import tvSlice from "./tvSlice";
+import videoSlice from "./videoSlice";
 import watchListSlice from "./watchListSlice";
 
 const store = configureStore({
@@ -19,7 +20,8 @@ const store = configureStore({
         tvs: tvSlice,
         genre: genreSlice,
         search: searchSlice,
-        watchList: watchListSlice
+        watchList: watchListSlice,
+        video: videoSlice
     }
 })
 

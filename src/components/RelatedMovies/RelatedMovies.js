@@ -7,16 +7,20 @@ import {
   fetchSingleMovieSimilar,
   getSingleMovieSimilar,
 } from "../../Redux/singleMovieSlice";
-import { fetchSingleTvSimilar, getSingleTvSimilar } from "../../Redux/singleTvSlice";
-import { getSinglePersonSimilar,fetchPersonSimilar } from "../../Redux/personSlice";
+import {
+  fetchSingleTvSimilar,
+  getSingleTvSimilar,
+} from "../../Redux/singleTvSlice";
+import {
+  getSinglePersonSimilar,
+  fetchPersonSimilar,
+} from "../../Redux/personSlice";
 
 export default function RelatedMovies({ Id, type }) {
   const movieSimilar = useSelector(getSingleMovieSimilar);
   const tvSimilar = useSelector(getSingleTvSimilar);
   const personSimilar = useSelector(getSinglePersonSimilar);
   const dispatch = useDispatch();
-
-  console.log(personSimilar);
 
   useEffect(() => {
     switch (type) {
@@ -33,20 +37,23 @@ export default function RelatedMovies({ Id, type }) {
             id: Id,
           })
         );
-      break;
+        break;
       case "person":
         dispatch(
           fetchPersonSimilar({
             id: Id,
           })
         );
-      break;
+        break;
       default:
-      break;
+        break;
     }
-  }, [Id,type,dispatch]);
+  }, [Id, type, dispatch]);
 
-  const similarType = (type === "movie" && movieSimilar) || ( type === "tv" && tvSimilar) || ( type === "person" && personSimilar);
+  const similarType =
+    (type === "movie" && movieSimilar) ||
+    (type === "tv" && tvSimilar) ||
+    (type === "person" && personSimilar);
 
   const showRelatedMovies = similarType.slice(0, 12).map((movie) => (
     <div className="px-1">
@@ -56,12 +63,15 @@ export default function RelatedMovies({ Id, type }) {
         key={movie.id}
         name={movie.title}
         img={movie.poster_path}
-        year={movie.release_date?.split("-").join().slice(0, 4) || movie.first_air_date?.split("-").join().slice(0, 4)}
+        year={
+          movie.release_date?.split("-").join().slice(0, 4) ||
+          movie.first_air_date?.split("-").join().slice(0, 4)
+        }
         genres={"Action"}
+        allInformation={movie}
       />
     </div>
   ));
-
 
   return (
     <>

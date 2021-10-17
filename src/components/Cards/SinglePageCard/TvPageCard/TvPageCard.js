@@ -11,10 +11,14 @@ import { addToWatchList } from "../../../../Redux/watchListSlice";
 import styles from "../SinglePageCard.module.css";
 import noImage from "../../../../img/ava.jpg";
 import Loader from "../../../Loader/Loader";
+import { fetchVideoTv, getVideo } from "../../../../Redux/videoSlice";
+import ModalVideo from "react-modal-video";
 
 export default function TvPageCard({ tvId }) {
   const tvData = useSelector(getSingleTv);
   const tvCredits = useSelector(getSingleTvCredits);
+  const videoTrailer = useSelector(getVideo);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +29,11 @@ export default function TvPageCard({ tvId }) {
     );
     dispatch(
       fetchSingleTvCredits({
+        id: tvId,
+      })
+    );
+    dispatch(
+      fetchVideoTv({
         id: tvId,
       })
     );
@@ -74,23 +83,39 @@ export default function TvPageCard({ tvId }) {
     setLoading(true);
   }, [setLoading]);
 
+  // video Modal
+  const [isOpen, setOpen] = useState(false);
+  let videoId = "";
+  if (videoTrailer[0] === undefined) {
+    videoId = null;
+  } else {
+    videoId = videoTrailer[0].key;
+  }
+  const handleOpenModal = useCallback(
+    (e) => {
+      e.preventDefault();
+      setOpen(true);
+    },
+    [setOpen]
+  );
+
   return (
     <div className={styles.movie_page_card_wrapper}>
       <div className={styles.movie_page_card_left}>
         <div>
-        {noPoster ? (
-          <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
-        ) : (
-          <>
-            {!loading ? <Loader /> : null}
-            <img
-              onLoad={onLoading}
-              className="img-fluid"
-              src={imageUrl}
-              alt={tvData.title}
-            />
-          </>
-        )}
+          {noPoster ? (
+            <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
+          ) : (
+            <>
+              {!loading ? <Loader /> : null}
+              <img
+                onLoad={onLoading}
+                className="img-fluid"
+                src={imageUrl}
+                alt={tvData.title}
+              />
+            </>
+          )}
         </div>
         <div className={styles.movie_page_card_left_content}>
           <span>1080p</span>
@@ -184,9 +209,16 @@ export default function TvPageCard({ tvId }) {
           <button onClick={handleAddToWatchList}>
             <i className="fas fa-plus"></i>My List
           </button>
-          <button>
+          <button onClick={handleOpenModal}>
             <i className="fas fa-film"></i>Trailer
           </button>
+          <ModalVideo
+            channel="youtube"
+            autoplay
+            isOpen={isOpen}
+            videoId={videoId}
+            onClose={() => setOpen(false)}
+          />
           <button>
             <i className="fas fa-share-alt"></i>Share
           </button>

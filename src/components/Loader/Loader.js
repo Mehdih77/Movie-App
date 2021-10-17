@@ -8,7 +8,7 @@ export default function Loader() {
         width: "20px",
         height: "20px",
       }}>
-      <img src={spinner} />
+      <img src={spinner} alt='spinner' />
     </div>
   );
 }
