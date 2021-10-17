@@ -32,7 +32,7 @@ export default function Popular() {
     [setCurrentPage]
   );
 
-  const showMoviesList = moviesList.map((movie) => (
+  const showMoviesList = moviesList?.map((movie) => (
     <div className="col-6 col-md-4 col-xl-2">
       <Card
         id={movie.id}

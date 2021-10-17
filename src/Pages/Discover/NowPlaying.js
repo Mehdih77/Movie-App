@@ -22,7 +22,7 @@ export default function NowPlaying() {
     // change the page number
     const changePage = useCallback((page) => {setCurrentPage(page)}, [setCurrentPage]);
 
-    const showMoviesList = moviesList.map(movie => (
+    const showMoviesList = moviesList?.map(movie => (
         <div className="col-6 col-md-4 col-xl-2">
             <Card 
                 id={movie.id}

@@ -59,10 +59,10 @@ export default function MovieCard({
         </div>
 
         {noPoster ? (
-          <img className="img-fluid" src={noImage} alt="Sorry, No Poster" />
+          <img className={`${styles.card_no_image} img-fluid`} src={noImage} alt="Sorry, No Poster" />
         ) : (
           <>
-            {!loading ? <Loader /> : null}
+            {!loading ? <div style={{width:"200px"}}><Loader /></div> : null}
             <img
               onLoad={onLoading}
               className="img-fluid"
@@ -76,9 +76,9 @@ export default function MovieCard({
         <div className={styles.card_content}>
           <p>{(title || name) || "Unknown"}</p>
           <div>
-            <span>{firstAirDate || year}</span>
+            <span>{(firstAirDate || year) || "Not Added"}</span>
             <span>{age}</span>
-            <span>{type}</span>
+            <span className={styles.card_content_movie_type}>{type}</span>
           </div>
         </div>
       </div>

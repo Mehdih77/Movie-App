@@ -4,11 +4,12 @@ export default function LazyLoader() {
   return (
     <div
       style={{
-        margin:"100px auto",
-        width: "30px",
-        height: "30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "520px",
       }}>
-      <img src={spinner} alt='spinner' />
+      <img src={spinner} alt="spinner" />
     </div>
   );
 }

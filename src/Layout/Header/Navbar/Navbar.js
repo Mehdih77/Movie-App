@@ -13,7 +13,7 @@ export default function Navbar() {
         dispatch(fetchGenresType());
     }, [dispatch])
 
-    const showGenresList = genresType.map(genre => (
+    const showGenresList = genresType?.map(genre => (
         <Link to={`/genre/${genre.name}/${genre.id}`} key={genre.id} className="dropdown-item" href="!#">{genre.name}</Link>
     ))
 

@@ -8,6 +8,10 @@
   visibility: visible;
   transition: opacity 0.5s linear;
 }
+.card_no_image{
+  height: 400px;
+  padding-bottom: 20px;
+}
 .card_content {
   color: #fff;
 }
@@ -26,6 +30,9 @@
   color: #a3a3a3;
   padding-right: 10px;
   font-size: 12px;
+}
+.card_content_movie_type{
+  text-transform: uppercase;
 }
 /* Card Icon */
 .card_icon {

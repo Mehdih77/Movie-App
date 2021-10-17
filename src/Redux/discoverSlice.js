@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchDiscoverMovies = createAsyncThunk("discover/fetchDiscover", async(params) => {
     const response = await axios
-    .get(`http://api.themoviedb.org/3/movie/${params.path}?api_key=81e6c83ddfd9e06a0fb3cf0012fcf182&language=en-US&page=${params.pageNumber}`)
+    .get(`https://api.themoviedb.org/3/movie/${params.path}?api_key=81e6c83ddfd9e06a0fb3cf0012fcf182&language=en-US&page=${params.pageNumber}`)
     return await {
         response: response.data.results,
         totalPages: response.data.total_pages,

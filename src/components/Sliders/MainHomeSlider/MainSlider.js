@@ -15,7 +15,7 @@ export default function MainSlider() {
       }));
   }, [dispatch])
 
-  const showMovies = moviesList.slice(13,19).map(movie => (
+  const showMovies = moviesList?.slice(13,19).map(movie => (
     <OverlayMainCard 
       key={movie.id}
       id={movie.id}

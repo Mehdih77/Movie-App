@@ -3,9 +3,6 @@ import styles from './ByGenreSideBar.module.css';
 export default function ByGenreSideBar() {
     return (
         <>
-            <div className={styles.movie_by_genre_title}>
-                <p>Genre: <span>Science Fiction</span></p>
-            </div>
             <div className={styles.movie_by_genre_sorting}>
                 <p>Sort By :</p>
                 <form>
