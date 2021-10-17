@@ -11,6 +11,9 @@
   padding-left: 30px;
   font-size: 15px;
 }
+input.input_error{
+  border: 3px solid red;
+}
 .search_bar div {
   width: 100% !important;
   position: relative;

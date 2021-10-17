@@ -74,7 +74,7 @@ export default function MovieCard({
         )}
 
         <div className={styles.card_content}>
-          <p>{title || name}</p>
+          <p>{(title || name) || "Unknown"}</p>
           <div>
             <span>{firstAirDate || year}</span>
             <span>{age}</span>

@@ -39,6 +39,7 @@ export default function MovieBySearch() {
       <Card
         id={movie.id}
         key={movie.id}
+        type={movie.media_type}
         img={movie.poster_path}
         name={movie.title || movie.name}
         star={movie.vote_average}
