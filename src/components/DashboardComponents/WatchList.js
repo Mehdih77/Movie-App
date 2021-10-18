@@ -21,7 +21,7 @@ export default function WatchList() {
   ));
 
   return (
-    <div className="row" style={{ minHeight: "407px" }}>
+    <div className="row" style={{ minHeight: "426px" }}>
       {showWatchList.length > 0 ? (
         showWatchList
       ) : (

@@ -21,6 +21,7 @@ export default function MoviePageCard({ movieId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0,0);
     dispatch(
       fetchSingleMovie({
         id: movieId,
@@ -93,7 +94,7 @@ export default function MoviePageCard({ movieId }) {
       setOpen(true);
     },
     [setOpen]
-  );
+  );  
 
   return (
     <div className={styles.movie_page_card_wrapper}>

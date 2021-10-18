@@ -44,6 +44,7 @@ export default function MovieCard({
     dispatch(addToWatchList(allInformation));
   };
 
+
   return (
     <div className={responsive ? "col-6 col-md-4 col-xl-2" : null}>
       <div className={styles.card}>

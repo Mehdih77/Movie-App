@@ -10,6 +10,7 @@ export default function PersonCard({ personId }) {
   const personInfo = useSelector(getPerson);
 
   useEffect(() => {
+    window.scrollTo(0,0);
     dispatch(
       fetchPerson({
         id: personId,

@@ -5,7 +5,6 @@ import Pagination from '../../components/Pagination/Pagination';
 import { fetchGenresMovie, getGenresMovie, getGenresTotalResult } from '../../Redux/genreSlice';
 import { useParams } from 'react-router';
 import TopTitleMovies from '../../components/TopTitleMovies/TopTitleMovies';
-import ByGenreSideBar from '../../components/ByGenreSideBar/ByGenreSideBar';
 
 export default function MovieByGenrePage() {
 

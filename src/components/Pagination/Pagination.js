@@ -11,6 +11,7 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
     const handleClick = (e) => {
         e.preventDefault();
         changePage(e.target.id);
+        window.scrollTo(0,0);
     };
   
     const pages = [];
@@ -20,7 +21,6 @@ const Pagination = ({totalResults,changePage,currentPage}) => {
 
     const renderPageNumbers = pages.map((number) => {
       if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-        console.log(number,currentPage);
         return (
           <li
             key={number}

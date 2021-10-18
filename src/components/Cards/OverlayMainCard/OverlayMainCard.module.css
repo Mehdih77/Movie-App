@@ -26,8 +26,8 @@
   left: 0;
   background: linear-gradient(
     90deg,
-    rgb(39, 40, 41) 0%,
-    rgb(39, 40, 41) 35%,
+    rgba(39, 40, 41, 0.994) 0%,
+    rgb(39, 40, 41, 0.994) 35%,
     rgba(39, 40, 41, 0) 100%
   );
   z-index: -1;

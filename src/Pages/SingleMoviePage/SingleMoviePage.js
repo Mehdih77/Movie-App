@@ -11,7 +11,7 @@ export default function SingleMoviePage() {
     const {id} = useParams();
     const movieData = useSelector(getSingleMovie);
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         dispatch(fetchSingleMovie({
             id
